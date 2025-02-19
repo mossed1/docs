@@ -8,3 +8,5 @@ To run it locally, clone the repo and run:
 pnpm install
 pnpm run dev
 ```
+
+It is recommended to install the MDX VSCode Extension for development.
