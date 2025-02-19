@@ -1,39 +1,76 @@
-import { Steps } from 'nextra/components'
+import { Steps, Callout } from 'nextra/components'
+import Image from 'next/image'
 
-# Contributing to Zeroth Robotics
+# Contributing to TARS-AI
 
-Please contribute to [https://github.com/zeroth-robotics](https://github.com/zeroth-robotics)! We welcome contributions from everyone, whether you’re a seasoned robotics engineer or just starting out. Here’s how you can get involved:
+We welcome contributions from everyone, whether you’re a seasoned robotics engineer or just starting out. Here’s how you can get involved:
 
 ## How to Contribute
 
 We welcome contributions in many forms, including:
 
-- Bug Reports: Found a bug? Let us know!
-- Feature Requests: Have an idea for improvement? Share it!
-- Documentation: Help us make our documentation better for everyone.
-- Code Contributions: Want to improve the code? We’d love to see it.
+- Code Contributions at [TARS-AI](https://github.com/TARS-AI-Community/TARS-AI).
+- CAD/Electrical Contributions at [TARS-AI](https://github.com/TARS-AI-Community/TARS-AI).
+- Documentation at [Docs](https://github.com/TARS-AI-Community/docs).
+- Bug Reports.
+- Feature Requests.
 
-To get started, please follow these steps:
+To get started, please follow these steps. For those new to GitHub, please see [New to Git and GitHub?](#new-to-git-and-github) below.
 
 <Steps>
 ### Fork the Repository
+<br />
+
+<Image src="/contribute/instructions_0.png" alt="Instructions Image 0" width={1000} height={300} />
+
 Click the “Fork” button at the top-right of a repository page to create your own copy of the repository.
 
+<Callout type="info" emoji="ℹ️">
+  Forking allows you to make changes in your own copy of the repository without affecting the original.
+</Callout>
+
 ### Clone Your Fork
-Clone your forked repository to your local machine:
+<br />
+
+<Image src="/contribute/instructions_1.png" alt="Instructions Image 1" width={1000} height={300} />
+
+Open a terminal or command prompt. Navigate to the folder where you want to store the repository 
+and clone your forked repository to your local machine:
 ```bash
-git clone git@github.com:zeroth-robotics/<your username>/<repository name>.git
-cd zeroth-robotics
+git clone git@github.com:<your username>/<repository name>.git
+cd <repository name>
 ```
+
+### Set Up Remote Repositories
+
+Check the remote URLs. You should see your fork as `origin`:
+```bash
+git remote -v
+```
+
+Add the original repository as the upstream remote:
+```bash
+git remote add upstream git@github.com:TARS-AI-Community/<repository name>.git
+```
+
+<Callout type="info" emoji="ℹ️">
+    This setup helps you fetch updates from the main repository to keep your fork up-to-date.
+</Callout>
 
 ### Create a New Branch
-Create a branch for your changes:
+
+**Always** create a new branch for your changes:
 ```bash
-git checkout -b my-feature
+git checkout -b <branch name>
 ```
+Use descriptive branch names, e.g., `add-new-feature` or `fix-bug`.
+
+<Callout type="info" emoji="ℹ️">
+    Branches help you isolate changes and organize features.
+</Callout>
 
 ### Make Your Changes
-Add your changes and test them locally.
+Add, edit, or delete files in the repository and test them locally.
 
 ### Commit Your Changes
 Commit your work with a clear message:
@@ -42,14 +79,48 @@ git add .
 git commit -m "Add a clear description of your changes"
 ```
 
+<Callout type="warning" emoji="⚠️">
+    For non-binary files, Git tracks changes for version control. For CAD files like STL or STEP, Git stores the files as blobs without versioning.
+</Callout>
+
 ### Push to Your Fork
 Push your changes to your forked repository:
 ```bash
-git push origin my-feature
+git push origin <branch name>
 ```
 
 ### Submit a Pull Request
-Go to the original repository and click “New Pull Request.” Follow the prompts to open a pull request. Please include a thorough description of your changes.
+<br />
+
+<Image src="/contribute/instructions_2.png" alt="Instructions Image 2" width={1000} height={300} />
+
+Once your changes are ready to be merged with the original, go to the *original repository* and click **Compare & pull request** (if available) or **New Pull Request**. 
+<br />
+
+<Image src="/contribute/instructions_3.png" alt="Instructions Image 3" width={1000} height={300} />
+
+Please provide the information above in the PR and click **Create pull request**.
+
+### Review and Merge
+
+Notify @Pyrater or @Alex W on Discord in the `#repo` channel if your PR is ready for review. If changes are requested, update your branch locally, commit, and push again. GitHub will automatically update the PR.
+
+Once approved, your changes will be merged into the main repository. **Congratulations!**
+
+### Keeping Your Fork Up-to-Date
+If other contributors make changes to the main repository, keep your fork in sync:
+1. Fetch updates from the upstream repository:
+   ```bash
+   git fetch upstream
+   ```
+2. Merge updates into your branch:
+   ```bash
+   git merge upstream/main
+   ```
+3. Push updates to your fork:
+   ```bash
+   git push origin your-branch-name
+   ```
 </Steps>
 
 ## Code Style Guidelines
@@ -62,16 +133,41 @@ To ensure consistency, please follow these guidelines:
 
 ## Joining the Community
 
-Connect with us and other contributors on our [Discord](https://discord.gg/G6KP76uha5) for questions, discussions, and real-time collaboration.
+Connect with us and other contributors on our [Discord](https://discord.gg/uXkqkz3mJJ) for questions, discussions, and real-time collaboration.
 
 ## Reporting Issues
 
-To report a bug or suggest a new feature, please use the Issues tab for the corresponding repository on [Github](https://github.com/zeroth-robotics). Include as much detail as possible, such as steps to reproduce, screenshots, or error logs.
+<Image src="/contribute/issues.png" alt="Issues Tab" width={1000} height={300} />
+
+To report a bug or suggest a new feature, please use the Issues tab for the corresponding repository on Github or through our Discord. Include as much detail as possible, such as steps to reproduce, screenshots, or error logs.
+
+## New to Git and GitHub?
+
+<Steps>
+### Create a GitHub Account
+[Create your GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) if you haven't already.
+
+### Install Git
+Download and [install Git](https://git-scm.com/downloads) on your computer.
+
+### Secure Your Account
+Protect your GitHub account with multi-factor authentication (MFA).
+[Set up MFA here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)
+
+### Set Up SSH Key
+Follow the guide to [generate and add your SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to your GitHub account.
+
+<Callout type="info" emoji="ℹ️">
+  Setting up an SSH key is highly recommended for secure and streamlined operations with GitHub.
+</Callout>
+</Steps>
+
+## Additional Resources
+- [Git Basics](https://git-scm.com/doc)
+- [GitHub Docs](https://docs.github.com)
+- [Common Git Commands Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- [Visual Studio Code - Working with GitHub](https://code.visualstudio.com/docs/sourcecontrol/github)
 
 
----
-Thank You!
 
-Your contributions help make Zeroth Robotics a success. Whether it’s fixing a typo or implementing a major feature, we thank you for your contribution to open source robotics. 
 
-Happy coding!
