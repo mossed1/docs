@@ -1,7 +1,7 @@
 {
-  "name": "zeroth-docs",
+  "name": "tars-ai-docs",
   "version": "0.0.1",
-  "description": "Zeroth Robotics Documentation",
+  "description": "TARS-AI Documentation",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeroth-robotics/docs.git"
+    "url": "git+https://github.com/TARS-AI-Community/docs"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "Alexander Wang <tars.ai.social@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeroth-robotics/docs/issues"
+    "url": "https://github.com/TARS-AI-Community/docs/issues"
   },
-  "homepage": "https://github.com/zeroth-robotics/docs#readme",
+  "homepage": "https://github.com/TARS-AI-Community/docs",
   "dependencies": {
     "@vercel/analytics": "^1.3.1",
     "next": "^14.2.12",

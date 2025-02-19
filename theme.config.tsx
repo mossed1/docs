@@ -1,21 +1,21 @@
 import { useRouter } from "next/router";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 
-const siteHost = "docs.zeroth.bot";
+const siteHost = "docs-tars-ai.vercel.app";
 const siteUrl = `https://${siteHost}`;
 const siteSocialUrl = `${siteUrl}/social.png`;
 const siteDesc = `Powerful, affordable, and open-source robotics platform for builders.`;
-const siteTitle = "Zeroth Bot Docs";
+const siteTitle = "TARS-AI Docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>Zeroth Bot Docs</span>,
+  logo: <span>TARS-AI Docs</span>,
   project: {
-    link: "https://github.com/zeroth-robotics/zeroth-bot",
+    link: "https://github.com/TARS-AI-Community/docs",
   },
   chat: {
-    link: "https://discord.gg/G6KP76uha5",
+    link: "https://discord.gg/uXkqkz3mJJ",
   },
-  docsRepositoryBase: "https://github.com/zeroth-robotics/docs/tree/main",
+  docsRepositoryBase: "https://github.com/TARS-AI-Community/docs/tree/main",
   editLink: {
     content: "Edit this page on GitHub",
   },

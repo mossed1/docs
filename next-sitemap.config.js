@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://docs.zeroth.bot",
+  siteUrl: "https://docs-tars-ai.vercel.app",
   generateRobotsTxt: true,
   changefreq: "daily",
   additionalPaths: async () => [
