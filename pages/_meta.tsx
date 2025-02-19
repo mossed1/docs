@@ -3,7 +3,7 @@ export default {
   "releases": "RELEASES",
   "build": "GET STARTED",
   "capabilities": "CAPABILITIES",
-  "ml": "ML RESEARCH",
+  "research": "RESEARCH",
   "contribute": "CONTRIBUTE",
   "about": {
     "title": "About",
