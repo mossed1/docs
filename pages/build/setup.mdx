@@ -1,0 +1,57 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+<Callout type="error" emoji="🚫">
+Public Alpha. Zeroth-01 Bot is available for basic demos, please expect breaking changes until 1.0 is reached.
+</Callout>
+<Callout type="warning" emoji="⚠️">
+Documentation may be out of date or incomplete. Always see our [Discord](https://discord.gg/G6KP76uha5) for the most up-to-date information.
+</Callout>
+
+# Software Setup
+Zeroth-01 bots are controlled by a simple-to-use [Python SDK](/sdk/python-library). Follow these instructions to install the OpenLCH humanoid robot platform on your SD card and connect with the Python SDK on your Zeroth-01 bot for the first time.
+
+# Image Installation and Setup
+
+<Steps>
+
+### Flash the Image to SD Card
+Use balenaEtcher (or the flashing tool of your choice) to flash the OpenLCH image onto your SD card.
+
+([Download balenaEtcher](https://etcher.balena.io/#download-etcher) or
+[Install balenaEtcher via command line](https://etcher-docs.balena.io/))
+
+1. Download the OpenLCH image from the [releases page](https://github.com/Zeroth-Robotics/OpenLCH-buildroot/releases).
+
+<img className="image-actionstep" src="/setup/image1.avif" alt="Finding and downloading the OpenLCH image" />
+<p className="image-caption">Double check you are downloading the OpenLCH image, and not a different resource.</p>
+
+2. Use the flashing tool to flash the image to your SD card.
+<img className="image-actionstep" src="/setup/image2.avif" alt="Flashing the image to an SD card" />
+3. Once flashing is complete, remove and reinsert the SD card into your computer.
+
+### Option 1: Connect via USB
+The Zeroth-01 can be connected to over USB using ssh.
+
+If you're connecting via USB, use the following details:
+
+- IP Address: 192.168.42.1
+- Username: root
+- Password: milkv
+
+SSH:
+```bash
+ssh root@192.168.42.1
+```
+
+If there's a keygen issue:
+```bash
+ssh-keygen -R 192.168.42.1
+```
+
+### Option 2: Connect via Wifi
+After connecting via USB for the first time, it's possible to set up [connection over wifi](/sdk/python-library#wi-fi-configuration).
+
+### Next Steps
+Now that you've connected to your Zeroth-01 bot for the first time, it's time for [testing and your first run](/build/run).
+</Steps>

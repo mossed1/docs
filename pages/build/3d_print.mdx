@@ -1,0 +1,149 @@
+import Image from 'next/image'
+import { Table, Td, Th, Tr } from 'nextra/components'
+import { Callout } from 'nextra/components'
+
+<Callout type="error" emoji="🚫">
+Public Alpha. Zeroth-01 Bot is available for basic demos, please expect breaking changes until 1.0 is reached.
+</Callout>
+<Callout type="warning" emoji="⚠️">
+Documentation may be out of date or incomplete. Always see our [Discord](https://discord.gg/G6KP76uha5) for the most up-to-date information.
+</Callout>
+
+# 3D Printing Guide
+These are instructions for the Zeroth-01 bot 3D printed parts.
+
+## CAD and STL Files for Printing
+
+<br />
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>Resource</Th>
+      <Th>Link</Th>
+      <Th>Description</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>OnShape CAD</Td>
+      <Td><a href="https://cad.onshape.com/documents/b4672a7f8ce3947bd250f2c1/w/ff02744612b3ad395d4541a6/e/9772c11323fdee205b2ba4cc" style={{ color: '#0066cc', textDecoration: 'underline' }}>Link</a></Td>
+      <Td>Latest CAD design files (editable)</Td>
+    </Tr>
+    <Tr>
+      <Td>STL Files</Td>
+      <Td><a href="/20241118stl.zip" style={{ color: '#0066cc', textDecoration: 'underline' }}>STL Files</a></Td>
+      <Td>Ready-to-print STL files</Td>
+    </Tr>
+  </tbody>
+</Table>
+
+
+## Print Settings
+
+Parameters: (configured for Bambu printers)
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>Setting</Th>
+      <Th>Parameter</Th>
+      <Th>Value</Th>
+      <Th>Image</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>Process</Td>
+      <Td></Td>
+      <Td>0.16mm</Td>
+      <Td><Image src="/printing/image15.png" alt="Assembly Image 1" width={400} height={300} /></Td>
+    </Tr>
+    <Tr>
+      <Td>Strength</Td>
+      <Td>Wall loops</Td>
+      <Td>5</Td>
+      <Td><Image src="/printing/image16.png" alt="Assembly Image 2" width={400} height={300} /></Td>
+    </Tr>
+    <Tr>
+      <Td>Support</Td>
+      <Td>Type</Td>
+      <Td>tree (auto)</Td>
+      <Td><Image src="/printing/image17.png" alt="Assembly Image 3" width={400} height={300} /></Td>
+    </Tr>
+  </tbody>
+</Table>
+
+
+## Visual Guide
+
+Please refer to the following table for all the required parts:
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>Parts</Th>
+      <Th>Visual Reference</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>`left_hand` and `right_hand`</Td>
+      <Td><Image src="/printing/image2.png" alt="Left and Right Hand" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`elbow_bracket_left` and `elbow_bracket_right`</Td>
+      <Td><Image src="/printing/image3.png" alt="Elbow Brackets Left and Right" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`left_shoulder_yaw` and `right_shoulder_yaw`</Td>
+      <Td><Image src="/printing/image4.png" alt="Left and Right Shoulder Yaw" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`Head`, `Neck`, and `Mounting Back plate`</Td>
+      <Td>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <Image src="/printing/image5.png" alt="Head" width={245} height={184} />
+          <Image src="/printing/image6.png" alt="Neck and Mounting Back Plate" width={245} height={184} />
+        </div>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>`Torso`</Td>
+      <Td><Image src="/printing/image7.png" alt="Torso" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`Electronics Mount`</Td>
+      <Td><Image src="/printing/image8.png" alt="Electronics Mount" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`hip_pitch_dual_carry`</Td>
+      <Td><Image src="/printing/image9.png" alt="Hip Pitch Dual Carry" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`hip_yaw_left` and `hip_yaw_right`</Td>
+      <Td><Image src="/printing/image10.png" alt="Hip Yaw Left and Right" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`hip_roll_left` and `hip_roll_right`</Td>
+      <Td><Image src="/printing/image11.png" alt="Hip Roll Left and Right" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`knee_pitch_right` and `knee_pitch_left`</Td>
+      <Td><Image src="/printing/image12.png" alt="Knee Pitch Right and Left" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`ankle_pitch_right` and `ankle_pitch_left`</Td>
+      <Td><Image src="/printing/image13.png" alt="Ankle Pitch Right and Left" width={500} height={375} /></Td>
+    </Tr>
+    <Tr>
+      <Td>`foot_left` and `foot_right`</Td>
+      <Td><Image src="/printing/image14.png" alt="Foot Left and Right" width={500} height={375} /></Td>
+    </Tr>
+  </tbody>
+</Table>
+
+### Next Steps
+Also see the [Bill of Materials](/build/bom). 
+
+Once you have everything: it's time for [assembly](/build/assemble).

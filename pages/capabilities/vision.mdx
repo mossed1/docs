@@ -1,0 +1,51 @@
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+Documentation may be out of date or incomplete. Always see our [Discord](https://discord.gg/G6KP76uha5) for the most up-to-date information.
+</Callout>
+
+# Vision
+
+Zero-01 platform has a 1080p camera mounted on the head of the robot.
+
+## Video Streaming
+OpenLCH SDK provides a function to start video streaming from the robot.
+
+```bash
+openlch start-video-stream
+openlch get-video-stream-urls
+```
+
+Currently, the video stream is available over RTSP, HLS, MSE and WebRTC.
+
+## Image Processing and Object Detection
+
+Neural acceleration is available via CVITEK's NPU. Here is a list of models tested by manufacturer:
+![Supported Neural Network Models](https://milkv.io/assets/images/duo-cv1800b-tpu-model_202307-97600da256223041fc004ef5a1f2fce9.png)
+
+To learn more about the neural acceleration, please refer to the [Milk-V documentation](https://milkv.io/docs/duo/application-development/tpu/tpu-introduction).
+
+## Specifications
+
+### Sensor Features
+- **Resolution**: 1920 x 1080 (2MP)
+- **Optical Size**: 1/3 inch
+- **Pixel Size**: 2.7μm × 2.7μm FSI
+- **Frame Rate**: 30fps at full resolution
+- **Dynamic Range**: 74dB
+- **Output Format**: Raw Bayer 10bit/8bit
+
+### Lens Specifications
+- **Focal Length**: 4mm ±5%
+- **Aperture**: f/2.0
+- **Focus Range**: 0.2m to infinity
+- **Field of View**:
+  - Diagonal: 88°
+  - Horizontal: 67°
+  - Vertical: 50°
+
+
+## Source Code
+
+The source code for the camera streaming is available [here](https://github.com/zeroth-robotics/cvi-camera).
+Please refer to the [original repository](https://github.com/milkv-duo/cvitek-tdl-sdk-sg200x) for the neural model usage example.

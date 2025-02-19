@@ -1,0 +1,47 @@
+import Image from 'next/image'
+import { Cards } from 'nextra/components'
+import { FaGithub, FaDiscord, FaTwitter, FaDiscourse, FaRobot } from 'react-icons/fa'
+
+<a 
+  href="https://www.youtube.com/watch?v=O6zqIltJcVw" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  style={{ cursor: 'pointer', display: 'block' }}
+>
+  <Image src="/banner.webp" alt="banner image" width={1000} height={500} style={{ maxWidth: '100%', height: 'auto' }} />
+</a>
+
+We're engineering the fastest practical path to general purpose and scalable robotics for everyone.
+
+### Our Robots
+**Zeroth-01** is an open-source [end-to-end](/ml/rl) humanoid robot starting at $350 with vision, RL-based walking, and speech.
+
+### Our Approach
+- **Sim2Real** transfer with open-source robot and simulation environment.
+- **End-to-End** control with deep RL.
+- **VLA**: Vision-language-action for generalizable policies.
+- **Affordability**: We're making our robot more affordable with open-source hardware and software.
+
+### Join Us
+Build your own robot and join the open-source community! We welcome your feedback, issues, and pull requests in [GitHub](https://github.com/zeroth-robotics), or join our [Discord](https://discord.gg/G6KP76uha5).
+
+<Cards>
+  <Cards.Card
+    icon={<FaGithub />}
+    title="Github"
+    href="https://github.com/zeroth-robotics"
+    description="Contribute to our open-source projects"
+  />
+  <Cards.Card
+    icon={<FaDiscord />}
+    title="Discord"
+    href="https://discord.gg/G6KP76uha5"
+    description="Chat with us and other contributors"
+  />
+  <Cards.Card
+    icon={<FaRobot />}
+    title="Latest Release"
+    href="/releases"
+    description="Check out our latest release"
+  />
+</Cards>

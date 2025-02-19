@@ -1,0 +1,37 @@
+{
+  "name": "zeroth-docs",
+  "version": "0.0.1",
+  "description": "Zeroth Robotics Documentation",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "rm -rf .next/cache",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeroth-robotics/docs.git"
+  },
+  "author": "Shu Ding <g@shud.in>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeroth-robotics/docs/issues"
+  },
+  "homepage": "https://github.com/zeroth-robotics/docs#readme",
+  "dependencies": {
+    "@vercel/analytics": "^1.3.1",
+    "next": "^14.2.12",
+    "next-sitemap": "^4.2.3",
+    "nextjs-google-analytics": "^2.3.7",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
+    "pnpm": "^9.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10",
+    "typescript": "^4.9.3"
+  }
+}
