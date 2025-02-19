@@ -1,2 +1,10 @@
-# docs
-TARS-AI Docs – The official documentation hub for TARS-AI, an open-source project for autonomous, intelligent assistants inspired by Interstellar's TARS. Find guides, technical references, and contribution resources here.
+# TARS-AI Documentation
+
+This is where you can find our documentation, guides, and more.
+
+To run it locally, clone the repo and run:
+
+```bash
+pnpm install
+pnpm run dev
+```
