@@ -8,53 +8,301 @@ TARS-AI is in the early stages of development. You may expect rapid changes to t
 May be out of date or incomplete. Always confirm on our [Discord](https://discord.gg/uXkqkz3mJJ) for the most up-to-date information.
 </Callout>
 
-# Software Setup
-Zeroth-01 bots are controlled by a simple-to-use [Python SDK](/sdk/python-library). Follow these instructions to install the OpenLCH humanoid robot platform on your SD card and connect with the Python SDK on your Zeroth-01 bot for the first time.
 
-# Image Installation and Setup
+# Software Setup
+TARS-AI is powered by a **modular software stack** designed for real-time speech, vision, and motor control. Follow these instructions to install and set up the TARS-AI environment on your Raspberry Pi.
+
+## Environment Setup and Installation
+<Steps>
+### Clone the TARS-AI Repository
+1. Open a terminal on your Raspberry Pi.
+2. Clone the **TARS-AI** repository:
+   ```bash
+   git clone https://github.com/pyrater/TARS-AI.git
+   ```
+3. Navigate to the cloned directory:
+   ```bash
+   cd TARS-AI
+   ```
+
+### Install System Dependencies
+To ensure smooth operation, install the required dependencies for **audio processing**, **format handling**, and **Selenium automation**.
+
+1. **Update your system**:
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   ```
+2. **Install Chromium and Chromedriver** (for web automation):
+   ```bash
+   sudo apt install -y chromium-browser chromium-chromedriver
+   ```
+3. **Install SoX (for audio processing)**:
+   ```bash
+   sudo apt install -y sox libsox-fmt-all
+   ```
+4. **Install PortAudio (for real-time audio I/O)**:
+   ```bash
+   sudo apt install -y portaudio19-dev
+   ```
+
+To verify the installations:
+```bash
+chromium-browser --version
+chromedriver --version
+sox --version
+```
+
+### Set Up the Python Environment
+1. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   ```
+2. Activate the virtual environment:
+   ```bash
+   source venv/bin/activate
+   ```
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Connect Hardware
+1. **Microphone**: Plug a USB microphone into your Raspberry Pi.
+2. **Speaker**: Connect an external speaker via **audio jack** or **Bluetooth**.
+
+### Configure API Keys
+To enable **LLM** and **TTS** functionality, configure your API keys.
+
+1. Create a `.env` file at the root of the repository based on the `.env.template` file.
+2. Edit the `.env` file and replace `"your-actual-api-key"` with your valid keys:
+   ```env
+   # LLM API Keys
+   OPENAI_API_KEY="your-actual-openai-api-key"
+   OOBA_API_KEY="your-actual-ooba-api-key"
+   TABBY_API_KEY="your-actual-tabby-api-key"
+
+   # TTS API Keys
+   AZURE_API_KEY="your-actual-azure-api-key"
+   ```
+
+**Get Your API Keys:**
+- [OpenAI API Key](https://www.youtube.com/watch?v=OB99E7Y1cMA)
+- [Azure Speech API Key (FREE)](https://www.youtube.com/watch?v=e4_AytZ264Q)
+    - Make sure to create a Free Azure account [Free Azure Signup](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account?icid=azurefreeaccount)
+    - Follow all the steps in the video up to `Install Azure speech Python package`.
+
+### Set Up Configuration Parameters
+1. **Create** a `config.ini` file based on the `config.ini.template` file:
+2. Open `src/config.ini` and update the **LLM settings**:
+   ```ini
+   [LLM]
+   llm_backend = openai
+   base_url = https://api.openai.com
+   openai_model = gpt-4o-mini
+   ```
+3. Update the **TTS (Text-to-Speech) settings**:
+   ```ini
+   [TTS]
+   ttsoption = azure
+   azure_region = eastus
+   tts_voice = en-US-Steffan:DragonHDLatestNeural
+   ```
+
+### Run the Program
+1. Navigate to the source directory:
+   ```bash
+   cd src/
+   ```
+2. Start the **TARS-AI assistant**:
+   ```bash
+   python app.py
+   ```
+3. TARS-AI is now running! Speak into the microphone and listen to responses from the speaker.
+
+</Steps>
+
+---
+
+## Next Steps
+Now that you've connected to your TARS-AI for the first time, it's time for [testing and your first run](/build/run).
+
+---
+## (Optional) XTTS Voice Server Setup
+TARS-AI supports **XTTS voice cloning** for a more **realistic** and **customizable** speech synthesis experience.
 
 <Steps>
 
-### Flash the Image to SD Card
-Use balenaEtcher (or the flashing tool of your choice) to flash the OpenLCH image onto your SD card.
+### Prepare Your PC with NVIDIA GPU
+The XTTS server must run on a **GPU-enabled PC** due to its computational requirements.
 
-([Download balenaEtcher](https://etcher.balena.io/#download-etcher) or
-[Install balenaEtcher via command line](https://etcher-docs.balena.io/))
+1. Ensure **Python 3.9-3.12** is installed on your PC.
+2. Install **CUDA** and **cuDNN** compatible with your NVIDIA GPU: [CUDA Installation Guide](https://www.youtube.com/watch?v=krAUwYslS8E)
+3. Install **PyTorch** compatible with your CUDA and cuDNN versions: [PyTorch Installation Guide](https://pytorch.org/get-started/locally/)
 
-1. Download the OpenLCH image from the [releases page](https://github.com/Zeroth-Robotics/OpenLCH-buildroot/releases).
+### Install XTTS API Server
+1. **Clone the XTTS API Server repository**:
+   ```bash
+   git clone https://github.com/daswer123/xtts-api-server.git
+   ```
+2. **Navigate into the repository**:
+   ```bash
+   cd xtts-api-server
+   ```
 
-<img className="image-actionstep" src="/setup/image1.avif" alt="Finding and downloading the OpenLCH image" />
-<p className="image-caption">Double check you are downloading the OpenLCH image, and not a different resource.</p>
+### Install Dependencies
+**For Windows Users:**
+1. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+2. Install the required dependencies:
+   ```bash
+   pip install xtts-api-server
+   ```
 
-2. Use the flashing tool to flash the image to your SD card.
-<img className="image-actionstep" src="/setup/image2.avif" alt="Flashing the image to an SD card" />
-3. Once flashing is complete, remove and reinsert the SD card into your computer.
+**For Linux/Mac Users:**
+1. Create and activate a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+2. Install the required dependencies:
+   ```bash
+   pip install xtts-api-server
+   ```
 
-### Option 1: Connect via USB
-The Zeroth-01 can be connected to over USB using ssh.
+For more details, refer to the official [XTTS API Server Installation Guide](https://github.com/daswer123/xtts-api-server/tree/main).
 
-If you're connecting via USB, use the following details:
+### Add the TARS.wav Speaker File
+1. Download the `TARS-short.wav` and `TARS-long.wav` files from the **TARS-AI repository** under:
+   ```
+   src/tts/wakewords/VoiceClones
+   ```
+2. Copy both files into the `speakers/` directory within your **XTTS project folder**.
+   - If the `speakers/` directory does not exist, create it manually.
 
-- IP Address: 192.168.42.1
-- Username: root
-- Password: milkv
+### Start the XTTS API Server
+1. **Ensure your virtual environment is activated**:
+   ```bash
+   source venv/bin/activate  # (Linux/Mac)
+   venv\Scripts\activate  # (Windows)
+   ```
+2. **Start the XTTS API Server**:
+   ```bash
+   python -m xtts_api_server --listen --port 8020
+   ```
+3. Once the server is running, open a browser and navigate to:
+   ```
+   http://localhost:8020/docs
+   ```
+4. This will open the API's **Swagger documentation interface**, which allows you to test the server's endpoints.
 
-SSH:
-```bash
-ssh root@192.168.42.1
-```
+### Check Available Speaker Files
+1. In the Swagger interface, locate the **GET /speakers** endpoint.
+2. Click **"Try it out"** and then **"Execute"**.
+3. Ensure the response includes the `TARS-Short` and `TARS-Long` speaker files:
+   ```json
+   [
+     {
+       "name": "TARS-Long",
+       "voice_id": "TARS-Long",
+       "preview_url": "http://localhost:8020/sample/TARS-Long.wav"
+     },
+     {
+       "name": "TARS-Short",
+       "voice_id": "TARS-Short",
+       "preview_url": "http://localhost:8020/sample/TARS-Short.wav"
+     }
+   ]
+   ```
 
-If there's a keygen issue:
-```bash
-ssh-keygen -R 192.168.42.1
-```
+### Generate a Sample TARS Voice Output
+1. Locate the **POST /tts_to_audio** endpoint in the API documentation.
+2. Click **"Try it out"** and enter the following JSON in the **Request Body**:
+   ```json
+   {
+       "text": "Hello, this is TARS speaking.",
+       "speaker_wav": "TARS-Short",
+       "language": "en"
+   }
+   ```
+3. Click **"Execute"** to send the request.
+4. Ensure the response contains a **downloadable audio file**:
+   ```
+   http://localhost:8020/output/audio12345.wav
+   ```
+5. Click the link to listen to the generated voice.
 
-### Option 2: Connect via Wifi
-After connecting via USB for the first time, it's possible to set up [connection over wifi](/sdk/python-library#wi-fi-configuration).
-
-### Next Steps
-Now that you've connected to your Zeroth-01 bot for the first time, it's time for [testing and your first run](/build/run).
 </Steps>
+
+---
+
+## (Optional) Home Assistant Integration
+TARS-AI can integrate with **Home Assistant** to enable **smart home automation** via voice commands.
+
+The **Home Assistant integration** allows TARS to:
+- **Process voice commands** and trigger smart home actions.
+- **Interact with connected devices** (lights, thermostats, security systems, etc.).
+- **Leverage Home Assistant's Assistant API** to send prompts and execute actions.
+
+To enable this integration, **TARS-AI must be configured** to communicate with your **Home Assistant server**.
+
+
+<Steps>
+### Prerequisites
+Before setting up integration, ensure:
+1. **Home Assistant is installed** and running on your local network.
+2. **TARS-AI is fully set up** on your Raspberry Pi.
+3. **A Home Assistant long-lived access token** is generated.
+
+### Configure Home Assistant in `config.ini`
+1. **Open `src/config.ini`** and locate the `[HOME_ASSISTANT]` section.
+2. Enable the Home Assistant module and configure the connection URL:
+   ```ini
+   [HOME_ASSISTANT] # HA Module
+   enabled = True
+   # If set to False, the Home Assistant module will be disabled.
+   url = http://homeassistant.local:8123
+   # Example: http://192.168.2.5:8123
+   # URL to access Home Assistant (set Token in .env file!).
+   ```
+3. Adjust the **URL** if your Home Assistant is running on a different address.
+
+### Generate and Add the Access Token
+TARS-AI needs a **long-lived access token** to authenticate with Home Assistant.
+
+1. **Log into Home Assistant**.
+2. Click on your **User Profile** (bottom left corner).
+3. Scroll down to the **Security** section.
+4. Locate **"Long-lived access tokens"** and click **"Create Token"**.
+5. Enter a name for your token and click **OK**.
+6. **Copy the token immediately**, as it won’t be visible again.
+
+### Store the Access Token in `.env`
+1. Open the `.env` file in your TARS-AI directory.
+2. Add your **Home Assistant Token**:
+   ```env
+   HA_TOKEN="INSERT-YOUR-TOKEN-HERE"
+   ```
+3. Save the file.
+
+### Restart TARS-AI to Apply Changes
+1. Navigate to the `src/` directory:
+   ```bash
+   cd src/
+   ```
+2. Restart the application:
+   ```bash
+   python app.py
+   ```
+
+Now, TARS-AI can **control smart home devices** with voice commands! 🎤🏠
+
+</Steps>
+
+
 
 <Callout type="default" emoji="👉">
   **Documentation Contributors:** @alexander-wang03
