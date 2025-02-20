@@ -2,7 +2,7 @@
 
 This is where you can find our documentation, guides, and more.
 
-To run it locally, clone the repo and run:
+To run it locally, clone the repo and run with Node.js installed:
 
 ```bash
 pnpm install
