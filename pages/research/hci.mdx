@@ -1,0 +1,46 @@
+import { Callout } from 'nextra/components'
+
+# Human-Computer Interaction
+
+## Natural Conversation Flow
+
+One of our key research areas is making TARS's interactions more natural and proactive, similar to its namesake from Interstellar. Current AI assistants, including TARS, often operate within rigid conversational frameworks - requiring explicit wake words and having trouble determining when users have finished speaking. Our current system operates with rigid turn-taking rules, requiring users to explicitly say "Hey TARS" to start interactions. The system also struggles with natural conversation flow, often unable to determine when users have finished speaking, and lacks the initiative to proactively engage or suggest actions when appropriate.
+
+### Ongoing Research
+
+We're working on several improvements to make conversations more fluid:
+
+1. **End-of-Utterance Detection:**
+   - Using Voice Activity Detection (VAD) to detect natural speech boundaries
+   - Implementing sequence classification with small language models to predict when users have completed their thoughts
+   - Reducing latency while maintaining accuracy
+
+2. **Proactive Engagement:**
+   - Developing models to identify appropriate moments for TARS to take initiative
+   - Balancing proactiveness with user preferences and context
+   - Learning from human conversation patterns
+
+## Agent Autonomy
+
+We envision TARS as more than just a reactive assistant. We're exploring ways to give TARS more agency while maintaining appropriate boundaries:
+
+### Proactive Assistance
+TARS should be able to anticipate user needs based on context and patterns, suggesting relevant actions or information without explicit prompting. The key challenge here is learning when to intervene and when to stay quiet, ensuring that proactive assistance enhances rather than disrupts the user experience.
+
+### Personality and Social Awareness
+Our TARS needs to understand social cues and maintain consistent personality traits across interactions. This means adapting its communication style based on social context (like formal meetings versus casual conversations), environmental context (public spaces versus private settings), user preferences (including humor and formality levels), and conversation participants.
+
+### Bounded Initiative
+While we want TARS to be proactive, its autonomy needs clear boundaries. We're establishing frameworks for autonomous actions with built-in safety checks and user control mechanisms. The goal is to strike a balance between helpful initiative and respect for user autonomy, ensuring TARS remains a trusted assistant rather than an unpredictable agent.
+
+## System Integration & Control
+
+TARS should be able to interface with and control various systems autonomously. This includes interacting with smart home systems, managing device settings, and optimizing environmental conditions based on user preferences. Beyond simple commands, it should understand how to navigate complex software systems, automate repetitive tasks, and orchestrate multiple applications to achieve user goals. 
+
+<Callout type="warning" emoji="⚠️">
+  While some features like TTS and LLM inference currently rely on cloud APIs, we're committed to running as much as possible offline on Raspberry Pi. This means carefully selecting and optimizing small, efficient models that can run with limited computational resources while still maintaining acceptable latency and accuracy.
+</Callout>
+
+<Callout type="default" emoji="👉">
+  **Documentation Contributors:** @latishab
+</Callout> 
