@@ -17,7 +17,6 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
 2. **USB Microphone**: For user input.
 3. **Speaker**: For TARS output.
 
-
 ## Fresh SD CARD Install using Raspberry Pi Imager
 <Steps>
 1. Choose Device (RPI5)
@@ -43,9 +42,10 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
    ```bash
    sudo reboot
    ```
+</Steps>
 
 ## Install and Configure LCD-show
-
+<Steps>
 1. Clone and install the LCD-show driver:
    ```bash
    git clone https://github.com/goodtft/LCD-show.git
@@ -80,11 +80,10 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
 4. Restart the system:
    ```bash
    sudo reboot
+</Steps>
 
 ## Audio AMP Install
-
 <Steps>
-
 1. Install necessary packages and set up a Python virtual environment:
    ```bash
    sudo apt install python3-venv -y
@@ -143,11 +142,11 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
 9. If audio issues persist:
    - Re-run the `i2samp.py` script.
    - When prompted, choose **N (disable)** for the `/dev/zero` playback service.
-
 </Steps>
 
 
 ### Clone the TARS-AI Repository
+<Steps>
 1. Open a terminal on your Raspberry Pi.
 2. Clone the **TARS-AI** repository:
    ```bash
@@ -157,8 +156,10 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
    ```bash
    cd TARS-AI
    ```
+</Steps>
 
 ### Install System Dependencies
+<Steps>
 To ensure smooth operation, use the included install script.
 
 1. **Update your system**:
@@ -178,6 +179,7 @@ To ensure smooth operation, use the included install script.
    ```bash
    sudo ./Install.sh
    ```
+</Steps>
 
 ### Connect Hardware
 1. **Microphone**: Plug a USB microphone into your Raspberry Pi.
@@ -204,6 +206,7 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
     - Follow all the steps in the video up to `Install Azure speech Python package`.
 
 ### Set Up Configuration Parameters
+<Steps>
 1. Open `src/config.ini` and update the **LLM settings**:
    ```ini
    [LLM]
@@ -218,8 +221,10 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
    azure_region = eastus
    tts_voice = en-US-Steffan:DragonHDLatestNeural
    ```
+</Steps>
 
 ### Run the Program
+<Steps>
 1. Navigate to the source directory:
    ```bash
    cd src/
@@ -235,6 +240,7 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
 ---
 
 ## (Optional) Home Assistant Integration
+<Steps>
 TARS-AI can integrate with **Home Assistant** to enable **smart home automation** via voice commands.
 
 The **Home Assistant integration** allows TARS to:
@@ -244,8 +250,6 @@ The **Home Assistant integration** allows TARS to:
 
 To enable this integration, **TARS-AI must be configured** to communicate with your **Home Assistant server**.
 
-
-<Steps>
 ### Prerequisites
 Before setting up integration, ensure:
 1. **Home Assistant is installed** and running on your local network.
@@ -284,6 +288,7 @@ TARS-AI needs a **long-lived access token** to authenticate with Home Assistant.
 3. Save the file.
 
 ### Restart TARS-AI to Apply Changes
+
 1. Navigate to the `src/` directory:
    ```bash
    cd src/
@@ -292,10 +297,9 @@ TARS-AI needs a **long-lived access token** to authenticate with Home Assistant.
    ```bash
    python app.py
    ```
+</Steps>
 
 Now, TARS-AI can **control smart home devices** with voice commands! 🎤🏠
-
-</Steps>
 
 ## Next Steps
 Now that you've connected to your TARS-AI for the first time, it's time for [testing and your first run](/build/run).
