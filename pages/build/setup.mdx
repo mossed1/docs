@@ -12,69 +12,141 @@ May be out of date or incomplete. Always confirm on our [Discord](https://discor
 # Software Setup
 TARS-AI is powered by a **modular software stack** designed for real-time speech, vision, and motor control. Follow these instructions to install and set up the TARS-AI environment on your Raspberry Pi.
 
-## Fix VNC for SPI Displays
-Since your LCD is SPI-based, you can create a fake virtual screen for VNC, so that when you VNC in, you get a higher resolution.
+## Minimum Hardware Prerequisites
+1. **Raspberry Pi**: Required for running the setup.
+2. **USB Microphone**: For user input.
+3. **Speaker**: For TARS output.
 
-### 1. Install `xserver-xorg-video-dummy`
-This package allows the system to create a virtual display without requiring an HDMI screen.
 
-```bash
-sudo apt install xserver-xorg-video-dummy -y
-```
-
-### 2. Create a New Xorg Configuration File
-Open the config file for the virtual screen:
-
-```bash
-sudo nano /etc/X11/xorg.conf.d/99-fake-screen.conf
-```
-
-Add the following configuration:
-
-```ini
-Section "Device"
-    Identifier "DummyDevice"
-    Driver "dummy"
-EndSection
-
-Section "Monitor"
-    Identifier "DummyMonitor"
-    HorizSync   15.0 - 100.0
-    VertRefresh 15.0 - 200.0
-    Modeline "1024x600" 50.00 1024 1056 1120 1200 600 603 613 624 -hsync +vsync
-EndSection
-
-Section "Screen"
-    Identifier "DummyScreen"
-    Device "DummyDevice"
-    Monitor "DummyMonitor"
-    DefaultDepth 24
-    SubSection "Display"
-        Depth 24
-        Modes "1024x600"
-    EndSubSection
-EndSection
-
-Section "ServerLayout"
-    Identifier "Layout0"
-    Screen 0 "DummyScreen"
-EndSection
-```
-
-This creates a virtual display at **1024x600**.
-If you want a different resolution, change **"1024x600"** in the `Modeline` and `Modes` line.
-
-### 3. Restart Xorg and VNC
-After adding this, restart the system to apply the new settings:
-
-```bash
-sudo reboot
-```
-
-Now, when you VNC in, it should show **1024x600** (or whatever resolution you set).
+## Fresh SD CARD Install using Raspberry Pi Imager
+<Steps>
+1. Choose Device (RPI5)
+2. Choose OS (Raspberry Pi IS (64-bit)
+3. Select your SD Card and configure your extras like wifi and username etc.
+4. Write image to SD CARD.
+</Steps>
 
 ## Environment Setup and Installation
 <Steps>
+1. Open a terminal and run:
+   ```bash
+   sudo raspi-config
+   ```
+2. Update the configuration tool.
+3. Expand the filesystem under **System Options**.
+4. Enable:
+   - VNC server
+   - SPI
+   - I2C
+5. Set audio settings under **Advanced Options** → **Audio** → **PulseAudio**.
+6. Reboot the system:
+   ```bash
+   sudo reboot
+   ```
+
+## Install and Configure LCD-show
+
+1. Clone and install the LCD-show driver:
+   ```bash
+   git clone https://github.com/goodtft/LCD-show.git
+   cd LCD-show
+   chmod +x LCD35-show
+   sudo ./LCD35-show
+   ```
+   This configures a **3.5-inch 480x320 LCD**.
+
+2. Modify boot configuration for HDMI resolution with VNC:
+   ```bash
+   sudo nano /boot/config.txt
+   ```
+   Add or update:
+   ```ini
+   hdmi_force_hotplug=1
+   hdmi_group=2
+   hdmi_mode=82  # 1920x1080 resolution
+   framebuffer_width=1920
+   framebuffer_height=1080
+   ```
+
+3. Modify boot configuration for screen rotation:
+   ```bash
+   sudo nano /boot/config.txt
+   ```
+   Add:
+   ```ini
+   dtoverlay=tft35a:rotate=270
+   ```
+
+4. Restart the system:
+   ```bash
+   sudo reboot
+
+## Audio AMP Install
+
+<Steps>
+
+1. Install necessary packages and set up a Python virtual environment:
+   ```bash
+   sudo apt install python3-venv -y
+   python -m venv env --system-site-packages
+   source env/bin/activate
+   ```
+
+2. Edit the boot configuration file:
+   ```bash
+   nano /boot/config.txt
+   ```
+
+3. Add the following lines at the end of the file:
+   ```ini
+   dtparam=audio=on
+   dtoverlay=hifiberry-dac
+   dtoverlay=i2s-mmap
+   ```
+
+4. Install required dependencies and setup I2S amplifier:
+   ```bash
+   sudo apt install -y wget
+   pip3 install adafruit-python-shell
+   wget https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/raw/main/i2samp.py
+   sudo -E env PATH=$PATH python3 i2samp.py
+   ```
+
+   **⚠️ DO NOT run audio in the background**, as it will break **VAD (Voice Activity Detection)** and **RMS (Root Mean Square) processing**.
+
+5. Reboot the system:
+   ```bash
+   sudo reboot
+   ```
+
+6. After rebooting, activate the environment and re-run the setup script:
+   ```bash
+   source env/bin/activate
+   sudo -E env PATH=$PATH python3 i2samp.py
+   ```
+
+7. Test the speaker output:
+   - When prompted, say **yes** to the speaker test and listen for sound.
+   - If the audio sounds **distorted**, reduce the volume using `alsamixer`.
+
+8. Enable volume control in **Raspbian Desktop** or **RetroPie**:
+   - Reboot the system **again**:
+     ```bash
+     sudo reboot
+     ```
+   - After the second reboot, open `alsamixer`:
+     ```bash
+     alsamixer
+     ```
+   - Use the **arrow keys** to lower the volume (50% is a good starting point).
+
+9. If audio issues persist:
+   - Re-run the `i2samp.py` script.
+   - When prompted, choose **N (disable)** for the `/dev/zero` playback service.
+
+</Steps>
+
+
 ### Clone the TARS-AI Repository
 1. Open a terminal on your Raspberry Pi.
 2. Clone the **TARS-AI** repository:
@@ -87,45 +159,24 @@ Now, when you VNC in, it should show **1024x600** (or whatever resolution you se
    ```
 
 ### Install System Dependencies
-To ensure smooth operation, install the required dependencies for **audio processing**, **format handling**, and **Selenium automation**.
+To ensure smooth operation, use the included install script.
 
 1. **Update your system**:
    ```bash
    sudo apt update
    sudo apt upgrade -y
    ```
-2. **Install Chromium and Chromedriver** (for web automation):
+2. **Update script permissions**:
    ```bash
-   sudo apt install -y chromium-browser chromium-chromedriver
+   chmod 777 Install.sh
    ```
-3. **Install SoX (for audio processing)**:
+3. **Allow the script to be executable**:
    ```bash
-   sudo apt install -y sox libsox-fmt-all
+   chmod a+x Install.sh
    ```
-4. **Install PortAudio (for real-time audio I/O)**:
+4. **Run the provided script**:
    ```bash
-   sudo apt install -y portaudio19-dev
-   ```
-
-To verify the installations:
-```bash
-chromium-browser --version
-chromedriver --version
-sox --version
-```
-
-### Set Up the Python Environment
-1. Create a virtual environment:
-   ```bash
-   python3 -m venv venv
-   ```
-2. Activate the virtual environment:
-   ```bash
-   source venv/bin/activate
-   ```
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
+   sudo ./Install.sh
    ```
 
 ### Connect Hardware
@@ -135,8 +186,7 @@ sox --version
 ### Configure API Keys
 To enable **LLM** and **TTS** functionality, configure your API keys.
 
-1. Create a `.env` file at the root of the repository based on the `.env.template` file.
-2. Edit the `.env` file and replace `"your-actual-api-key"` with your valid keys:
+1. Edit the `.env` file and replace `"your-actual-api-key"` with your valid keys:
    ```env
    # LLM API Keys
    OPENAI_API_KEY="your-actual-openai-api-key"
@@ -154,15 +204,14 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
     - Follow all the steps in the video up to `Install Azure speech Python package`.
 
 ### Set Up Configuration Parameters
-1. **Create** a `config.ini` file based on the `config.ini.template` file:
-2. Open `src/config.ini` and update the **LLM settings**:
+1. Open `src/config.ini` and update the **LLM settings**:
    ```ini
    [LLM]
    llm_backend = openai
    base_url = https://api.openai.com
    openai_model = gpt-4o-mini
    ```
-3. Update the **TTS (Text-to-Speech) settings**:
+2. Update the **TTS (Text-to-Speech) settings**:
    ```ini
    [TTS]
    ttsoption = azure
@@ -180,121 +229,6 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
    python app.py
    ```
 3. TARS-AI is now running! Speak into the microphone and listen to responses from the speaker.
-
-</Steps>
-
----
-
-## Next Steps
-Now that you've connected to your TARS-AI for the first time, it's time for [testing and your first run](/build/run).
-
----
-## (Optional) XTTS Voice Server Setup
-TARS-AI supports **XTTS voice cloning** for a more **realistic** and **customizable** speech synthesis experience.
-
-<Steps>
-
-### Prepare Your PC with NVIDIA GPU
-The XTTS server must run on a **GPU-enabled PC** due to its computational requirements.
-
-1. Ensure **Python 3.9-3.12** is installed on your PC.
-2. Install **CUDA** and **cuDNN** compatible with your NVIDIA GPU: [CUDA Installation Guide](https://www.youtube.com/watch?v=krAUwYslS8E)
-3. Install **PyTorch** compatible with your CUDA and cuDNN versions: [PyTorch Installation Guide](https://pytorch.org/get-started/locally/)
-
-### Install XTTS API Server
-1. **Clone the XTTS API Server repository**:
-   ```bash
-   git clone https://github.com/daswer123/xtts-api-server.git
-   ```
-2. **Navigate into the repository**:
-   ```bash
-   cd xtts-api-server
-   ```
-
-### Install Dependencies
-**For Windows Users:**
-1. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate
-   ```
-2. Install the required dependencies:
-   ```bash
-   pip install xtts-api-server
-   ```
-
-**For Linux/Mac Users:**
-1. Create and activate a virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-2. Install the required dependencies:
-   ```bash
-   pip install xtts-api-server
-   ```
-
-For more details, refer to the official [XTTS API Server Installation Guide](https://github.com/daswer123/xtts-api-server/tree/main).
-
-### Add the TARS.wav Speaker File
-1. Download the `TARS-short.wav` and `TARS-long.wav` files from the **TARS-AI repository** under:
-   ```
-   src/tts/wakewords/VoiceClones
-   ```
-2. Copy both files into the `speakers/` directory within your **XTTS project folder**.
-   - If the `speakers/` directory does not exist, create it manually.
-
-### Start the XTTS API Server
-1. **Ensure your virtual environment is activated**:
-   ```bash
-   source venv/bin/activate  # (Linux/Mac)
-   venv\Scripts\activate  # (Windows)
-   ```
-2. **Start the XTTS API Server**:
-   ```bash
-   python -m xtts_api_server --listen --port 8020
-   ```
-3. Once the server is running, open a browser and navigate to:
-   ```
-   http://localhost:8020/docs
-   ```
-4. This will open the API's **Swagger documentation interface**, which allows you to test the server's endpoints.
-
-### Check Available Speaker Files
-1. In the Swagger interface, locate the **GET /speakers** endpoint.
-2. Click **"Try it out"** and then **"Execute"**.
-3. Ensure the response includes the `TARS-Short` and `TARS-Long` speaker files:
-   ```json
-   [
-     {
-       "name": "TARS-Long",
-       "voice_id": "TARS-Long",
-       "preview_url": "http://localhost:8020/sample/TARS-Long.wav"
-     },
-     {
-       "name": "TARS-Short",
-       "voice_id": "TARS-Short",
-       "preview_url": "http://localhost:8020/sample/TARS-Short.wav"
-     }
-   ]
-   ```
-
-### Generate a Sample TARS Voice Output
-1. Locate the **POST /tts_to_audio** endpoint in the API documentation.
-2. Click **"Try it out"** and enter the following JSON in the **Request Body**:
-   ```json
-   {
-       "text": "Hello, this is TARS speaking.",
-       "speaker_wav": "TARS-Short",
-       "language": "en"
-   }
-   ```
-3. Click **"Execute"** to send the request.
-4. Ensure the response contains a **downloadable audio file**:
-   ```
-   http://localhost:8020/output/audio12345.wav
-   ```
-5. Click the link to listen to the generated voice.
 
 </Steps>
 
@@ -363,9 +297,12 @@ Now, TARS-AI can **control smart home devices** with voice commands! 🎤🏠
 
 </Steps>
 
+## Next Steps
+Now that you've connected to your TARS-AI for the first time, it's time for [testing and your first run](/build/run).
 
+---
 
 <Callout type="default" emoji="👉">
-  **Documentation Contributors:** @alexander-wang03
+  **Documentation Contributors:** @alexander-wang03, @pyrater
 </Callout>
 
