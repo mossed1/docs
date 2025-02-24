@@ -1,13 +1,77 @@
 import { Callout } from 'nextra/components'
 
-<Callout type="warning" emoji="⚠️">
-Page under construction.
-</Callout>
-
 # Memory
 
-More details coming soon.
+TARS uses an advanced Retrieval-Augmented Generation (RAG) system for memory management. Our system offers two distinct search methods, with the newer Hybrid Search being the recommended approach.
+
+## 1. Naive RAG (Legacy)
+Vector search (Naive RAG) converts text into high-dimensional numerical representations (embeddings) and uses cosine similarity to find semantically similar documents. While fast and effective for capturing general meaning, it may sometimes miss specific keyword matches.
+
+Key characteristics:
+- Fast retrieval speed
+- Good at understanding semantic similarity
+- Works well with conceptual queries
+- May occasionally miss exact keyword matches
+
+Example:
+```python
+# Get the embedding for your query text
+embedding = get_embedding("your query text")
+# Perform a vector search based on that embedding
+results = vector_search(embedding)
+```
+
+## 2. Hybrid RAG (Recommended)
+Our hybrid search (Hybrid RAG) combines multiple techniques to provide more accurate and reliable results:
+
+1. **Vector Search:** Creates embeddings to understand semantic meaning
+2. **BM25 Full Text Search:** Performs keyword-based matching
+3. **Reciprocal Rank Fusion (RRF):** Intelligently combines results from both methods
+4. **Neural Reranking:** Fine-tunes results using a CrossEncoder model
+
+Benefits of each component:
+- **Vector Search:** Captures conceptual similarity and context
+- **BM25:** Ensures important keywords aren't missed
+- **RRF:** Balances semantic and keyword matching
+- **Neural Reranking:** Improves accuracy through deep learning
+
+Example:
+```python
+# Perform a hybrid search that combines all methods
+results = hybrid_search("your query text")
+
+# Example response format:
+[
+  {
+    "document": "Memory text example 1",
+    "score": 0.95,
+    "metadata": {
+      "source": "conversation_123",
+      "timestamp": "2024-03-20T10:30:00Z"
+    }
+  },
+  // Additional results...
+]
+```
+
+<Callout type="info" emoji="💡">
+  **Best Practice:** Use hybrid RAG for most applications. Fall back to naive RAG only if you need maximum speed and can tolerate slightly lower accuracy.
+</Callout>
+
+## Future Works
+
+Our system currently faces challenges in context management when retrieving the top-k most relevant results. For example, in a conversation where a user asks "What's the capital of France?", gets the answer "Paris", and then asks "What's its population?", the system might miss that "its" refers to "Paris" because it prioritizes relevance over temporal context.
+
+We are actively working on solutions such as temporal decay factors for relevance scores, maintaining sliding windows of recent context, and implementing multi-hop retrieval to connect related pieces of information. For TARS to truly function as a personal assistant, we're also exploring more sophisticated memory management approaches like knowledge graphs to track connections between entities and events, and structured memory types to manage different types of information (episodic, semantic, procedural) separately.
+
+<Callout type="info" emoji="📊">
+  Detailed performance benchmarks comparing different RAG approaches are currently in development and will be published soon.
+</Callout>
+
+<Callout type="warning" emoji="⚠️">
+  Implementation of these advanced features requires careful consideration of privacy, computational resources, and complexity trade-offs.
+</Callout>
 
 <Callout type="default" emoji="👉">
-  **Documentation Contributors:** @alexander-wang03
+  **Documentation Contributors:** @alexander-wang03 @latishab
 </Callout>
