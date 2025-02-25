@@ -1,5 +1,5 @@
-import { Callout } from 'nextra/components'
-import { Steps } from 'nextra/components'
+import { Callout, Steps } from 'nextra/components'
+import Image from 'next/image'
 
 <Callout type="error" emoji="🚫">
 TARS-AI is in the early stages of development. You may expect rapid changes to the platform.
@@ -17,43 +17,39 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
 2. **USB Microphone**: For user input.
 3. **Speaker**: For TARS output.
 
-## Fresh SD CARD Install using Raspberry Pi Imager
-<Steps>
-1. Choose Device (RPI5)
-2. Choose OS (Raspberry Pi IS (64-bit)
-3. Select your SD Card and configure your extras like wifi and username etc.
-4. Write image to SD CARD.
-</Steps>
+<Callout type="warning" emoji="⚠️">
+If you don't already have Raspberry Pi OS installed, follow [this video guide](https://www.youtube.com/watch?v=DRJAILbqjy0) to install Raspberry Pi OS using the Raspberry Pi Imager.
+</Callout>
 
 ## Environment Setup and Installation
+
 <Steps>
+
+### Configure Raspberry Pi
 1. Open a terminal and run:
    ```bash
    sudo raspi-config
    ```
-2. Update the configuration tool.
-3. Expand the filesystem under **System Options**.
-4. Enable:
-   - VNC server
-   - SPI
-   - I2C
-5. Set audio settings under **Advanced Options** → **Audio** → **Pipewire**.
-6. Reboot the system:
+2. Update the configuration tool through `Update`.
+<Image src="/setup/setup_0.png" alt="Setup Image 0" width={1000} height={300} />
+3. Under `Interface Options`, enable `VNC`, `SPI`, and `I2C`.
+4. Set audio settings under `Advanced Options` → `Audio Config` → `Pipewire`.
+5. Reboot the system:
    ```bash
    sudo reboot
    ```
-</Steps>
 
-## Install and Configure LCD-show
-<Steps>
-1. Clone and install the LCD-show driver:
+### Install and Configure LCD-show
+1. Clone and install the [LCD-show driver](https://github.com/goodtft/LCD-show):
    ```bash
    git clone https://github.com/goodtft/LCD-show.git
    cd LCD-show
    chmod +x LCD35-show
    sudo ./LCD35-show
    ```
-   This configures a **3.5-inch 480x320 LCD**.
+<Callout type="info" emoji="ℹ️">
+This configures a **3.5-inch 480x320 LCD**.
+</Callout>
 
 2. Modify boot configuration for HDMI resolution with VNC:
    ```bash
@@ -80,10 +76,9 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
 4. Restart the system:
    ```bash
    sudo reboot
-</Steps>
+   ```
 
-## Audio AMP Install
-<Steps>
+### Install Audio AMP
 1. Install necessary packages and set up a Python virtual environment:
    ```bash
    sudo apt install python3-venv -y
@@ -142,11 +137,9 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
 9. If audio issues persist:
    - Re-run the `i2samp.py` script.
    - When prompted, choose **N (disable)** for the `/dev/zero` playback service.
-</Steps>
 
 
 ### Clone the TARS-AI Repository
-<Steps>
 1. Open a terminal on your Raspberry Pi.
 2. Clone the **TARS-AI** repository:
    ```bash
@@ -156,10 +149,8 @@ TARS-AI is powered by a **modular software stack** designed for real-time speech
    ```bash
    cd TARS-AI
    ```
-</Steps>
 
 ### Install System Dependencies
-<Steps>
 To ensure smooth operation, use the included install script.
 
 1. **Update your system**:
@@ -179,7 +170,6 @@ To ensure smooth operation, use the included install script.
    ```bash
    sudo ./Install.sh
    ```
-</Steps>
 
 ### Connect Hardware
 1. **Microphone**: Plug a USB microphone into your Raspberry Pi.
@@ -206,7 +196,6 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
     - Follow all the steps in the video up to `Install Azure speech Python package`.
 
 ### Set Up Configuration Parameters
-<Steps>
 1. Open `src/config.ini` and update the **LLM settings**:
    ```ini
    [LLM]
@@ -221,10 +210,8 @@ To enable **LLM** and **TTS** functionality, configure your API keys.
    azure_region = eastus
    tts_voice = en-US-Steffan:DragonHDLatestNeural
    ```
-</Steps>
 
 ### Run the Program
-<Steps>
 1. Navigate to the source directory:
    ```bash
    cd src/
@@ -277,7 +264,7 @@ TARS-AI needs a **long-lived access token** to authenticate with Home Assistant.
 3. Scroll down to the **Security** section.
 4. Locate **"Long-lived access tokens"** and click **"Create Token"**.
 5. Enter a name for your token and click **OK**.
-6. **Copy the token immediately**, as it won’t be visible again.
+6. **Copy the token immediately**, as it won't be visible again.
 
 ### Store the Access Token in `.env`
 1. Open the `.env` file in your TARS-AI directory.
