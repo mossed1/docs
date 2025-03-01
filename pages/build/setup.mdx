@@ -78,6 +78,35 @@ This configures a **3.5-inch 480x320 LCD**.
    sudo reboot
    ```
 
+### Touchscreen Calibration
+To calibrate the touchscreen, follow these steps:
+
+1. Install the Calibration Tool
+```bash
+sudo apt-get install xinput-calibrator
+```
+
+2. Run the Calibration Tool
+```bash
+xinput_calibrator 
+```
+Touch the targets as instructed. The tool will generate calibration offsets.
+
+3. Save the Calibration Data
+Copy and Paste the calibration data and save the file. Save the output data to a configuration file:
+
+```bash
+sudo nano /usr/share/X11/xorg.conf.d/99-calibration.conf 
+```
+
+4. Reboot
+```bash
+sudo reboot
+```
+
+5. Verify Calibration
+Interact with the desktop to ensure accurate touch. If needed, rerun the calibration tool or manually adjust the values in 99-calibration.conf.
+
 ### Clone the TARS-AI Repository
 1. Open a terminal on your Raspberry Pi.
 2. Clone the **TARS-AI** repository:
