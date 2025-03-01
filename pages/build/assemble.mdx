@@ -594,10 +594,6 @@ For audio output, connect an I2S amplifier to the Raspberry Pi’s I2S (PCM) pin
 | Pin 6            | GND      | Ground                       | GND (Amplifier Ground)              |
 | Pin 2 or 4       | 5V       | Power Supply                 | VIN (Amplifier Power Input)         |
 
-<Callout type="default" emoji="👉">
-  **Note:** Enable the I2S interface on the Raspberry Pi by following the instructions in the [Adafruit MAX98357 guide](https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp).
-</Callout>
-
 ### Connecting the 16CH PWM Servo Controller
 
 To connect a 16CH PWM servo controller to your Raspberry Pi via I2C, use the following pinout configuration:
@@ -608,8 +604,6 @@ To connect a 16CH PWM servo controller to your Raspberry Pi via I2C, use the fol
 | SCL            | SCL (Pin 5)           | Serial Clock Line for I2C communication  |
 | SDA            | SDA (Pin 3)           | Serial Data Line for I2C communication   |
 | VCC            | 3.3V (Pin 1 or 17)    | Power for the I2C logic                  |
-
-
 
 ### Next Steps
 Once assembly is complete, move to [software setup](/build/setup).
