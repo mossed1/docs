@@ -7,58 +7,28 @@ TARS-AI is in the early stages of development. You may expect rapid changes to t
 <Callout type="warning" emoji="⚠️">
 May be out of date or incomplete. Always confirm on our [Discord](https://discord.gg/uXkqkz3mJJ) for the most up-to-date information.
 </Callout>
-<Callout type="error" emoji="🚫">
-The following instructions are for the Zeroth-01 bot, **NOT TARS-AI**. This serves as a template for what the TARS-AI instructions could look like.
-</Callout>
 
 # Testing and First Run
-Once you've assembled your bot and installed the necessary software, a premade inference model exists that can be used as a demo for testing.
-
-<Callout type="warning" emoji="⚠️">
-We've demonstrated policy deployment on the robot, however this is still under heavy development as we continue to work on reliability of the system.
-</Callout>
+Once you've assembled your TARS and installed the necessary software, it is time to run the program.
 
 <Steps>
-### Conda
-First, set up your Python virtual environment that will allow you to interact using the [Python SDK](/sdk/python-library).
+### SSH
+First, connect to your RPI using SSH.
 
-Clone repository:
+### Run Script
+
+Run the script in the TARS-AI folder using:
 ```bash
-git clone --recursive https://github.com/zeroth-robotics/zeroth-bot
-cd zeroth-bot
+python App-Start.py
 ```
 
-Create conda environment:
-(install Mini Conda [here](https://docs.conda.io/en/latest/miniconda.html) if you haven't done it yet)
+If your LCD screen is displaying booting logs... 
 
-```bash
-conda create -n humanoid-os python=3.12
-conda activate humanoid-os
-```
+The first boot will take some time to download all the required models.
 
-### Inference
-Ping the Milk-V board to verify your connection is working. Finally, you're ready to test everything together using the demo inference model.
-
-Install dependencies:
-```bash
-pip install -r experiments/requirements.txt
-```
-
-Test if ping Milk-V is working:
-```bash
-ping 192.168.42.1
-```
-
-Run inference:
-```bash
-python experiments/run.py
-```
-
-If your robot is moving... 
-
-Congratulations! Your Zeroth-01 bot is now assembled, connected, and ready for development.
+Congratulations! Your TARS-AI is now assembled, connected, and ready for development.
 </Steps>
 
 <Callout type="default" emoji="👉">
-  **Documentation Contributors:** @alexander-wang03
+  **Documentation Contributors:** @alexander-wang03, @pyrater
 </Callout>
