@@ -78,71 +78,11 @@ This configures a **3.5-inch 480x320 LCD**.
    sudo reboot
    ```
 
-### Install Audio AMP
-1. Install necessary packages and set up a Python virtual environment:
-   ```bash
-   sudo apt install python3-venv -y
-   python -m venv env --system-site-packages
-   source env/bin/activate
-   ```
-
-2. Edit the boot configuration file:
-   ```bash
-   nano /boot/config.txt
-   ```
-
-3. Add the following lines at the end of the file:
-   ```ini
-   dtparam=audio=on
-   dtoverlay=hifiberry-dac
-   dtoverlay=i2s-mmap
-   ```
-
-4. Install required dependencies and setup I2S amplifier:
-   ```bash
-   sudo apt install -y wget
-   pip3 install adafruit-python-shell
-   wget https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/raw/main/i2samp.py
-   sudo -E env PATH=$PATH python3 i2samp.py
-   ```
-
-   **⚠️ DO NOT run audio in the background**, as it will break **VAD (Voice Activity Detection)** and **RMS (Root Mean Square) processing**.
-
-5. Reboot the system:
-   ```bash
-   sudo reboot
-   ```
-
-6. After rebooting, activate the environment and re-run the setup script:
-   ```bash
-   source env/bin/activate
-   sudo -E env PATH=$PATH python3 i2samp.py
-   ```
-
-7. Test the speaker output:
-   - When prompted, say **yes** to the speaker test and listen for sound.
-   - If the audio sounds **distorted**, reduce the volume using `alsamixer`.
-
-8. Enable volume control in **Raspbian Desktop** or **RetroPie**:
-   - Reboot the system **again**:
-     ```bash
-     sudo reboot
-     ```
-   - After the second reboot, open `alsamixer`:
-     ```bash
-     alsamixer
-     ```
-   - Use the **arrow keys** to lower the volume (50% is a good starting point).
-
-9. If audio issues persist:
-   - Re-run the `i2samp.py` script.
-   - When prompted, choose **N (disable)** for the `/dev/zero` playback service.
-
-
 ### Clone the TARS-AI Repository
 1. Open a terminal on your Raspberry Pi.
 2. Clone the **TARS-AI** repository:
    ```bash
+   sudo apt install python3-venv -y
    git clone https://github.com/pyrater/TARS-AI.git
    ```
 3. Navigate to the cloned directory:
@@ -174,6 +114,61 @@ To ensure smooth operation, use the included install script.
 ### Connect Hardware
 1. **Microphone**: Plug a USB microphone into your Raspberry Pi.
 2. **Speaker**: Connect an external speaker via **audio jack** or **Bluetooth**.
+
+
+### Install Audio AMP
+1. Edit the boot configuration file:
+   ```bash
+   nano /boot/config.txt
+   ```
+
+2. Add the following lines at the end of the file:
+   ```ini
+   dtparam=audio=on
+   dtoverlay=hifiberry-dac
+   dtoverlay=i2s-mmap
+   ```
+
+3. Install required dependencies and setup I2S amplifier:
+   ```bash
+   source TARS-AI/src/.venv/bin/activate (if not already activate)
+   sudo apt install -y wget
+   pip3 install adafruit-python-shell
+   wget https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/raw/main/i2samp.py
+   sudo -E env PATH=$PATH python3 i2samp.py
+   ```
+
+   **⚠️ DO NOT run audio in the background**, as it will break **VAD (Voice Activity Detection)** and **RMS (Root Mean Square) processing**.
+
+4. Reboot the system:
+   ```bash
+   sudo reboot
+   ```
+
+5. After rebooting, activate the environment and re-run the setup script:
+   ```bash
+   source TARS-AI/src/.venv/bin/activate (if not already activate)
+   sudo -E env PATH=$PATH python3 i2samp.py
+   ```
+
+6. Test the speaker output:
+   - When prompted, say **yes** to the speaker test and listen for sound.
+   - If the audio sounds **distorted**, reduce the volume using `alsamixer`.
+
+7. Enable volume control in **Raspbian Desktop** or **RetroPie**:
+   - Reboot the system **again**:
+     ```bash
+     sudo reboot
+     ```
+   - After the second reboot, open `alsamixer`:
+     ```bash
+     alsamixer
+     ```
+   - Use the **arrow keys** to lower the volume (50% is a good starting point).
+
+8. If audio issues persist:
+   - Re-run the `i2samp.py` script.
+   - When prompted, choose **N (disable)** for the `/dev/zero` playback service.
 
 ### Configure API Keys
 To enable **LLM** and **TTS** functionality, configure your API keys.
