@@ -290,7 +290,6 @@ Before assembly, check both the [Bill of Materials](/build/bom) and [3D printing
       </div>
     </fieldset>
 
-
     <fieldset class="flex-item-half-width">
       <legend>3D Printed Parts for 5.0" Screen:</legend>
       <div>
@@ -330,24 +329,16 @@ Before assembly, check both the [Bill of Materials](/build/bom) and [3D printing
     <fieldset class="flex-item-half-width">
       <legend>Bill of Materials:</legend>
       <div>
-        <input type="checkbox" id="serial_bus_servo"/>
-        <label for="serial_bus_servo"> Serial Bus Servo</label>
+        <input type="checkbox" id="servos"/>
+        <label for="servos"> Servos</label>
       </div>
       <div>
         <input type="checkbox" id="controller"/>
-        <label for="controller"> Controller</label>
+        <label for="controller">BT Controller</label>
       </div>
       <div>
         <input type="checkbox" id="servo_driver_board"/>
-        <label for="servo_driver_board"> Servo driver board</label>
-      </div>
-      <div>
-        <input type="checkbox" id="lcd_imu"/>
-        <label for="lcd_imu"> LCD IMU</label>
-      </div>
-      <div>
-        <input type="checkbox" id="imu"/>
-        <label for="imu"> IMU</label>
+        <label for="servo_driver_board">Servo driver board</label>
       </div>
       <div>
         <input type="checkbox" id="camera"/>
@@ -359,11 +350,11 @@ Before assembly, check both the [Bill of Materials](/build/bom) and [3D printing
       </div>
       <div>
         <input type="checkbox" id="12v_to_5v"/>
-        <label for="12v_to_5v"> 12V to 5V</label>
+        <label for="12v_to_5v"> 12V to 5V/6V</label>
       </div>
       <div>
         <input type="checkbox" id="microphone"/>
-        <label for="microphone"> Microphone</label>
+        <label for="microphone">Usb Microphone</label>
       </div>
       <div>
         <input type="checkbox" id="speaker"/>
@@ -391,14 +382,11 @@ Before assembly, check both the [Bill of Materials](/build/bom) and [3D printing
 
 <Image src="/assemble/IMG_3512.webp" alt="Component preparation" width={384} height={288} />
 
-### Assemble Ankle Pitch Servos to Feet
+### Assemble the chassis
 
-- Connect the left and right ankle **pitch servos** to the feet.
+- Connect the chassis upper and chassis lower by securing the connector support mount with M3 20mm screws.
 
-<div className="grid grid-cols-2 gap-4">
-  <Image src="/assemble/IMG_3525.webp" alt="Connecting ankle pitch servos - Step 1" width={288} height={216} />
-  <Image src="/assemble/IMG_3526.webp" alt="Connecting ankle pitch servos - Step 2" width={240} height={180} />
-</div>
+<Image src="/assemble/Step1.png" alt="Step 1" width={288} height={216} />
 
 ### Attach Servo Casings
 
