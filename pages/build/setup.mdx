@@ -129,9 +129,9 @@ To ensure smooth operation, use the included install script.
    dtoverlay=i2s-mmap
    ```
 
-3. Install required dependencies and setup I2S amplifier:
+3. Install required dependencies and setup I2S amplifier from the TARS-AI Folder:
    ```bash
-   source TARS-AI/src/.venv/bin/activate (if not already activate)
+   source src/.venv/bin/activate
    sudo apt install -y wget
    pip3 install adafruit-python-shell
    wget https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/raw/main/i2samp.py
@@ -145,9 +145,9 @@ To ensure smooth operation, use the included install script.
    sudo reboot
    ```
 
-5. After rebooting, activate the environment and re-run the setup script:
+5. After rebooting, activate the environment and re-run the setup script from the TARS-AI folder:
    ```bash
-   source TARS-AI/src/.venv/bin/activate (if not already activate)
+   source src/.venv/bin/activate (if not already activate)
    sudo -E env PATH=$PATH python3 i2samp.py
    ```
 
