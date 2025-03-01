@@ -441,27 +441,32 @@ This step is very important and can result in broken parts if not calibrated cor
 </Callout>
 
 1. Connect Servos to the Servo Controller:
--Attach the center servo to the first set of pins on the servo controller (Pin 0)
--Connect the robot's left (port) arm to the next set of pins (Pin 1)
--Connect the robot's right (starboard) arm to the following set of pins (Pin 2)
+
+- Attach the center servo to the first set of pins on the servo controller (Pin 0)
+- Connect the robot's left (port) arm to the next set of pins (Pin 1)
+- Connect the robot's right (starboard) arm to the following set of pins (Pin 2)
 
 2. Connect the PWM Servo Controller to the Raspberry Pi:
--Use the servotester.py script to determine the minimum and maximum PWM values the servo can operate within
--Calculate the dead center value (midpoint) between the minimum and maximum PWM values
--Manually attach the arms at the midpoint position to ensure proper alignment
+
+- Use the servotester.py script to determine the minimum and maximum PWM values the servo can operate within
+- Calculate the dead center value (midpoint) between the minimum and maximum PWM values
+- Manually attach the arms at the midpoint position to ensure proper alignment
 
 3. Update the Configuration File:
--Add the determined center PWM value as neutral to the config.ini file. Add 50 to neutral for up and subtract 50 for down limits
+
+- Add the determined center PWM value as neutral to the config.ini file. Add 50 to neutral for up and subtract 50 for down limits
 
 4. Center the Arms Mechanically:
--Using the servo test tool, set each arm's servo channel to a midpoint value, such as 350 (between the typical range of 100-600)
--Detach the arms, reposition them to align mechanically with the center position, and then reattach them
--This ensures the arms are mechanically centered at the specified midpoint value (e.g., 350). For example if you set 350 they should be vertical and perfectly straight
+
+- Using the servo test tool, set each arm's servo channel to a midpoint value, such as 350 (between the typical range of 100-600)
+- Detach the arms, reposition them to align mechanically with the center position, and then reattach them
+- This ensures the arms are mechanically centered at the specified midpoint value (e.g., 350). For example if you set 350 they should be vertical and perfectly straight
 
 5. Calibrate the Center Servo:
--Set the center servo to its lowest position (e.g., 88) using the servo test tool
--Reposition and reattach the center servo to align with the lowest point
--Define this position (e.g., 88) as UPHEIGHT in the config.ini file
+
+- Set the center servo to its lowest position (e.g., 88) using the servo test tool
+- Reposition and reattach the center servo to align with the lowest point
+- Define this position (e.g., 88) as UPHEIGHT in the config.ini file
 
 ### Install 608 bearing to Left / Right arm mount
 
@@ -541,6 +546,5 @@ This completes the main assembly of TARS. Ensure all connections are secure, and
 Once assembly is complete, move to [software setup](/build/setup).
 
 <Callout type="default" emoji="👉">
-  **Documentation Contributors:** @alexander-wang03
-  **Documentation Contributors:** @pyrater
+  **Documentation Contributors:** @alexander-wang03 | @pyrater |
 </Callout>
