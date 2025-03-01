@@ -1,62 +1,190 @@
 import { Callout } from 'nextra/components'
 import { Table, Td, Th, Tr } from 'nextra/components'
- 
-## Latest Releases
+
+## Releases
+
+Here you can find the history of TARS-AI software releases, including new features, improvements, and contributor credits.
 
 <Callout type="info" emoji="ℹ️">
-  *Last updated: February 19, 2025*
+  *Last updated: 1 MAR 2025*
 </Callout>
 
+### 🚀 RELEASE v3.0: Faster, Smarter, and Now With a Fancy WebUI!
 
-This page is under construction. 
+**Release Date:** 2 weeks ago  
+**Commit:** 9dcf944  
+**Tag:** [3.0](https://github.com/TARS-AI-Community/TARS-AI/releases/tag/3.0)
 
-### Release x.x
+The TARS-AI 3.0 release brings a massive overhaul with improved speech capabilities, a sleek new chat WebUI, better memory handling, and countless refinements. This is the most powerful and user-configurable version of TARS-AI yet.
 
-<br/>
+#### 🔥 Main Highlights
+- **Text-to-Speech (TTS) & Speech-to-Text (STT) Overhaul**
+  - Refactored TTS and STT for better efficiency and flexibility
+  - Added Eleven Labs TTS for high-quality voice synthesis
+  - Integrated Silero VAD (Voice Activity Detection) for smarter audio processing
+  - DEEPINFRA LLM option added
+  - TTS now streams per sentence in chunks, making responses significantly faster
 
-<Table>
-  <thead>
-    <Tr>
-      <Th>Category</Th>
-      <Th>Resource</Th>
-      <Th>Version</Th>
-      <Th>Link</Th>
-    </Tr>
-  </thead>
-  <tbody>
-    <Tr>
-      <Td>Mechanical</Td>
-      <Td>OnShape CAD</Td>
-      <Td>x.x</Td>
-      <Td>link</Td>
-    </Tr>
-    <Tr>
-      <Td></Td>
-      <Td>URDF/MCJF/Meshes</Td>
-      <Td>x.x</Td>
-      <Td>link</Td>
-    </Tr>
-    <Tr>
-      <Td>Electrical</Td>
-      <Td>Schematics</Td>
-      <Td>x.x</Td>
-      <Td>link</Td>
-    </Tr>
-    <Tr>
-      <Td>Software</Td>
-      <Td>Core</Td>
-      <Td>3.0</Td>
-      <Td>https://github.com/TARS-AI-Community/TARS-AI/releases/tag/3.0</Td>
-    </Tr>
-    <Tr>
-      <Td></Td>
-      <Td>Simulation</Td>
-      <Td>x.x</Td>
-      <Td>link</Td>
-    </Tr>
-  </tbody>
-</Table>
+#### 🔥 New Features & Upgrades
+- **Chat WebUI:** Fully interactive web-based chat interface for easier communication
+- **Expanded User Configuration:** More settings added to `config.ini` for deeper customization
+- **Message Queue System:** Terminal now processes messages more efficiently with queuing
+- **Memory / RAG Enhancements:** Upgraded retrieval-augmented generation (RAG) from Latisha, making long-term recall more accurate and fluid
+- **Wiki Created:** Comprehensive documentation for setup, features, and customization
+
+#### 🔥 File & Structure Improvements
+- Reorganized and updated 3D files for better organization
+- Updated Character Card with more options for defining character traits and personalities
+
+#### ⚙️ Technical & Performance Improvements
+- **Faster Response Time:** TTS chunked streaming greatly reduces lag
+- **Bug Fixes Galore:** Squashed countless bugs for a smoother experience
+- **Optimized Memory Handling:** Smarter memory system improves both speed and accuracy
+- **Refactored Codebase:** Cleaner, more maintainable structure across core modules
+
+#### 🔄 What's Changed
+- Added Eleven Labs TTS by @latishab
+- Added DEEPINFRA LLM by @latishab
+- Integrated Silero VAD by @latishab
+- Implemented Chat WebUI by @pyrater
+- Refactored TTS & STT pipeline by @pyrater
+- Improved RAG Memory from Latisha by @latishab
+- Message Queue System for Terminal by @pyrater
+- Updated and reorganized 3D files by @pyrater
+- Created Wiki for Documentation by @latishab
+- Readme Updates by @mossed1
+
+#### 🎉 New Contributors
+- @pyrater made their first contribution
+- @xanomanox made their first contribution
+- @DaftNinja made their first contribution
+- @mspierg made their first contribution
+- @holmesha made their first contribution
+- @BiosUp made their first contribution
+- @latishab (many updates merged by pyrater)
+
+#### 📜 Full Changelog
+[2.0 → 3.0](https://github.com/TARS-AI-Community/TARS-AI/compare/2.0...3.0)
+
+#### 👉 View All Commits
+[Commits for 3.0](https://github.com/TARS-AI-Community/TARS-AI/commits/3.0)
+
+#### Contributors
+- @pyrater
+- @latishab
+- @mspierg
+- @BiosUp
+- @xanomanox
+- @DaftNinja
+- @mossed1
+
+#### Download
+- [Source code (zip)](https://github.com/TARS-AI-Community/TARS-AI/archive/refs/tags/3.0.zip)
+- [Source code (tar.gz)](https://github.com/TARS-AI-Community/TARS-AI/archive/refs/tags/3.0.tar.gz)
+
+---
+
+### RELEASE v2.0: Now with 100% more sarcasm and 0% chances of docking mishaps!
+
+**Release Date:** 2 months ago  
+**Commit:** 7be6df8  
+**Tag:** [2.0](https://github.com/TARS-AI-Community/TARS-AI/releases/tag/2.0)
+
+The TARS-AI 2.0 development branch introduces several enhancements over the initial 1.0 release, bringing more functionality and a touch of humor to the AI assistant.
+
+#### 🚀 Core Additions
+- **Speech-to-Text (STT) Enhancements:**
+  - Integrated Whisper for local STT alongside Vosk and external server options
+  - Added STT sensitivity configuration for improved accuracy
+  - Comprehensive improvements to the STT system for better transcription
+  - Significant speed improvements
+  - Dynamic microphone quality selection based on hardware
+- **Character Customizations:**
+  - Persistent personality settings (e.g., humor and tone) for dynamic character interaction
+  - Expanded character settings and behavior customization options
+- **Function Calling:**
+  - Dual methods for function calls: Naive Bayes (NB) and LLM-based approaches
+- **Voice-Controlled Movement:**
+  - Enabled voice commands to control robotic movements with precise mapping
+- **Image Generation:**
+  - Integrated DALL·E and Stable Diffusion for AI-powered image creation
+- **Volume Control:**
+  - Fine-tuned volume adjustments through both voice commands and external configurations (Credit: @mskull)
+- **Home Assistant Integration:**
+  - Seamless connection with smart home systems
+
+#### ⚙️ Technical Improvements
+- Reworked LLM function into its own module
+- Reworked LLM function to be compatible with thinking models (Deepseek R1)
+- Reworked build prompt function for easy importing
+- Reworked memory module to ensure correct prompt and memory management
+- Reworked tokenization for proper counts
+- Renamed STL files for better readability
+- Many fixes and tweaks for better usability
+- Over 196 commits
+- **Override Encoding Model:**
+  - Enhanced compatibility with models using `override_encoding_model`
+- **TTS Fixes:**
+  - Resolved issues with special characters in Text-to-Speech
+
+#### What's Changed
+- Update `config.ini.template` by @DaftNinja in [#3](https://github.com/TARS-AI-Community/TARS-AI/pull/3)
+- V9-misc-mods by @xanomanox in [#4](https://github.com/TARS-AI-Community/TARS-AI/pull/4)
+- Add M3 grub screws to fasteners by @xanomanox in [#5](https://github.com/TARS-AI-Community/TARS-AI/pull/5)
+- Updated parts list (in progress) by @xanomanox in [#6](https://github.com/TARS-AI-Community/TARS-AI/pull/6)
+- Feature/volume by @mspierg in [#8](https://github.com/TARS-AI-Community/TARS-AI/pull/8)
+- Update `training_data.csv` by @holmesha in [#10](https://github.com/TARS-AI-Community/TARS-AI/pull/10)
+- Dev by @holmesha in [#11](https://github.com/TARS-AI-Community/TARS-AI/pull/11)
+- Added `openai` to `requirements.txt` by @BiosUp in [#12](https://github.com/TARS-AI-Community/TARS-AI/pull/12)
+
+#### New Contributors
+- @DaftNinja made their first contribution in [#3](https://github.com/TARS-AI-Community/TARS-AI/pull/3)
+- @xanomanox made their first contribution in [#4](https://github.com/TARS-AI-Community/TARS-AI/pull/4)
+- @mspierg made their first contribution in [#8](https://github.com/TARS-AI-Community/TARS-AI/pull/8)
+- @holmesha made their first contribution in [#10](https://github.com/TARS-AI-Community/TARS-AI/pull/10)
+- @BiosUp made their first contribution in [#12](https://github.com/TARS-AI-Community/TARS-AI/pull/12)
+
+#### Full Changelog
+[1.0...2.0](https://github.com/TARS-AI-Community/TARS-AI/compare/1.0...2.0)
+
+#### Contributors
+- @mspierg
+- @URL42
+- @BiosUp
+- @xanomanox
+- @DaftNinja
+
+---
+
+### RELEASE v1.0: Hello World, Hello TARS!
+
+**Release Date:** December 30, 2024  
+**Commit:** 6123fcf  
+**Tag:** [1.0](https://github.com/pyrater/TARS-AI/releases/tag/1.0)
+
+We are thrilled to announce the official release of TARS-AI 1.0, the first version of our highly anticipated intelligent assistant designed for local deployment, inspired by the iconic TARS robot from *Interstellar*. This marks a significant step toward integrating advanced AI capabilities into personalized, everyday tasks while maintaining privacy and security.
+
+#### Key Features
+- **Fully Localized AI:** Runs entirely on local hardware, ensuring data privacy and independence from cloud services
+- **TARS Personality Integration:** Embodies the humor, utility, and wit of the original TARS character
+- **Modular Design:** Supports a variety of customizable modules
+- **Real-Time Interaction:** Provides dynamic, context-aware responses
+- **Expandable Hardware Integration:** Integrates with external sensors, actuators, and robotics systems
+- **Configurable AI Ethics and Humor Levels:** Adjust personality traits to your preferences
+- **Developer-Friendly Framework:** Built with an open API and extensive documentation
+
+#### What's Changed
+- RELEASE v1.0: Hello World, Hello TARS! by @alexander-wang03 in [#1](https://github.com/pyrater/TARS-AI/pull/1)
+- ENVSETUP.md Azure TTS Instructions Update by @alexander-wang03 in [#2](https://github.com/pyrater/TARS-AI/pull/2)
+
+#### New Contributors
+- @alexander-wang03 made their first contribution in [#1](https://github.com/pyrater/TARS-AI/pull/1)
+
+#### Full Changelog
+[https://github.com/pyrater/TARS-AI/commits/1.0](https://github.com/pyrater/TARS-AI/commits/1.0)
+
+---
 
 <Callout type="default" emoji="👉">
-  **Documentation Contributors:** @alexander-wang03
+  **Documentation Contributors:** @alexander-wang03, @pyrater
 </Callout>
