@@ -540,7 +540,175 @@ This step is very important and can result in broken parts if not calibrated cor
 </Steps>
 ---
 
-This completes the main assembly of TARS. Ensure all connections are secure, and all screws are tightened.
+This completes the main assembly of TARS. Ensure all connections are secure, and all screws are tightened. Now move onto wiring him up.
+
+## Wiring Guide for GPIO LCD Screen (if not using HDMI) and I2S Amplifier
+
+This section provides detailed instructions on how to wire an LCD display and an I2S amplifier to a Raspberry Pi, along with steps to connect a 16CH PWM servo controller. It assumes you are using an SPI-based LCD screen and an I2S amplifier for audio output.
+
+<Callout type="info" emoji="ℹ️">
+  Ensure your Raspberry Pi is powered off before making any connections to avoid damage to the hardware.
+</Callout>
+
+<Image src="/assemble/rpiwiring.png" alt="Component preparation" width={384} height={288} />
+
+### LCD Wiring
+
+To wire the LCD display to your Raspberry Pi, use the following pinout configuration:
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>LCD Pin</Th>
+      <Th>Raspberry Pi GPIO Pin</Th>
+      <Th>Description</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>1, 17</Td>
+      <Td>3.3V (Pin 1 or 17)</Td>
+      <Td>3.3V power supply</Td>
+    </Tr>
+    <Tr>
+      <Td>2, 4</Td>
+      <Td>5V (Pin 2 or 4)</Td>
+      <Td>5V power supply for the backlight (if required)</Td>
+    </Tr>
+    <Tr>
+      <Td>6, 9, 14, 20, 25</Td>
+      <Td>GND (Pin 6, 9, etc.)</Td>
+      <Td>Ground connections</Td>
+    </Tr>
+    <Tr>
+      <Td>11</Td>
+      <Td>GPIO17 (Pin 11)</Td>
+      <Td>Touch IRQ (optional, for touch input)</Td>
+    </Tr>
+    <Tr>
+      <Td>18</Td>
+      <Td>GPIO24 (Pin 18)</Td>
+      <Td>LCD Register Select (DC/RS)</Td>
+    </Tr>
+    <Tr>
+      <Td>19</Td>
+      <Td>GPIO10 (Pin 19, SPI MOSI)</Td>
+      <Td>SPI MOSI (data sent to the LCD)</Td>
+    </Tr>
+    <Tr>
+      <Td>21</Td>
+      <Td>GPIO9 (Pin 21, SPI MISO)</Td>
+      <Td>SPI MISO (data received from touchscreen)</Td>
+    </Tr>
+    <Tr>
+      <Td>22</Td>
+      <Td>GPIO25 (Pin 22)</Td>
+      <Td>LCD Reset pin</Td>
+    </Tr>
+    <Tr>
+      <Td>23</Td>
+      <Td>GPIO11 (Pin 23, SPI SCLK)</Td>
+      <Td>SPI Clock for LCD and touchscreen</Td>
+    </Tr>
+    <Tr>
+      <Td>24</Td>
+      <Td>GPIO8 (Pin 24, SPI CE0)</Td>
+      <Td>SPI Chip Select for LCD</Td>
+    </Tr>
+    <Tr>
+      <Td>26</Td>
+      <Td>GPIO7 (Pin 26, SPI CE1)</Td>
+      <Td>SPI Chip Select for touchscreen</Td>
+    </Tr>
+  </tbody>
+</Table>
+
+### Connecting the I2S Amplifier
+
+For audio output, connect an I2S amplifier to the Raspberry Pi’s I2S (PCM) pins as follows:
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>Raspberry Pi Pin</Th>
+      <Th>GPIO Pin</Th>
+      <Th>Function</Th>
+      <Th>Connect to Amplifier</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>Pin 12</Td>
+      <Td>GPIO18</Td>
+      <Td>I2S Bit Clock (BCLK)</Td>
+      <Td>BCLK</Td>
+    </Tr>
+    <Tr>
+      <Td>Pin 35</Td>
+      <Td>GPIO19</Td>
+      <Td>I2S Left/Right Clock (LRCLK)</Td>
+      <Td>LRCLK</Td>
+    </Tr>
+    <Tr>
+      <Td>Pin 40</Td>
+      <Td>GPIO21</Td>
+      <Td>I2S Data Out (DOUT)</Td>
+      <Td>DIN (Audio Data Input to Amplifier)</Td>
+    </Tr>
+    <Tr>
+      <Td>Pin 6</Td>
+      <Td>GND</Td>
+      <Td>Ground</Td>
+      <Td>GND (Amplifier Ground)</Td>
+    </Tr>
+    <Tr>
+      <Td>Pin 2 or 4</Td>
+      <Td>5V</Td>
+      <Td>Power Supply</Td>
+      <Td>VIN (Amplifier Power Input)</Td>
+    </Tr>
+  </tbody>
+</Table>
+
+<Callout type="default" emoji="👉">
+  **Note:** Enable the I2S interface on the Raspberry Pi by following the instructions in the [Adafruit MAX98357 guide](https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp).
+</Callout>
+
+### Connecting the 12CH PWM Servo Controller
+
+To connect a 12CH PWM servo controller to your Raspberry Pi via I2C, use the following pinout configuration:
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>Controller Pin</Th>
+      <Th>Raspberry Pi GPIO Pin</Th>
+      <Th>Description</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>GND</Td>
+      <Td>GND (Pin 6, etc.)</Td>
+      <Td>Ground connection</Td>
+    </Tr>
+    <Tr>
+      <Td>SCL</Td>
+      <Td>SCL (Pin 5)</Td>
+      <Td>Serial Clock Line for I2C communication</Td>
+    </Tr>
+    <Tr>
+      <Td>SDA</Td>
+      <Td>SDA (Pin 3)</Td>
+      <Td>Serial Data Line for I2C communication</Td>
+    </Tr>
+    <Tr>
+      <Td>VCC</Td>
+      <Td>3.3V (Pin 1 or 17)</Td>
+      <Td>Power for the I2C logic</Td>
+    </Tr>
+  </tbody>
+</Table>
 
 ### Next Steps
 Once assembly is complete, move to [software setup](/build/setup).
