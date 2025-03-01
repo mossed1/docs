@@ -422,92 +422,129 @@ Before assembly, check both the [Bill of Materials](/build/bom) and [3D printing
 
 <Image src="/assemble/Step6.png" alt="Step 6" width={384} height={288} />
 
-### Assemble the Upper Connecting Rod Arm
+### Insert USB Mic and RPI
 
-- Attach a METAL 25T Aluminum Servo Horn with M3 threads to the servo using the supplied hardware 
-- NOTE: This cannot be printed and will strip if not used correctly. 
-- Secure the upper connecting rod arm to the servo horn with an M3*12 screw as indicated by the arrow.
+- Insert USB Mic into the RPI
+- Secure the RPI to chassis lower with m2*4mm screws.
+**carefull not to over tighten**
 
 <Image src="/assemble/Step7.png" alt="Step 7" width={384} height={288} />
 
-### Reinstall the Chassis Upper Lid
+### Install 25T metal servo arm and connecting rod
 
-- Reinstall the Chassis Upper Lid (v9) onto the chassis, ensuring it is properly aligned and secured in place.
+- Secure the metal servo 25T arm to the center servo.
+- Attach upper connecting rod arm with m3*12mm screw.
 
 <Image src="/assemble/Step8.png" alt="Step 8" width={384} height={288} />
 
 
-### Install the PWM Board and Buck Converter
+### Center Servos and calibrate
 
-- Secure the 12-channel PWM board to the chassis wall with four M24 screws (use a flat tip by hand). 
-- Connect the 6V out wires to the board. Secure the 12V to 6V buck converter with two M310 screws.
+<Callout type="warning" emoji="⚠️">
+This step is very important and can result in broken parts if not calibrated correctly!
+</Callout>
+
+#Connect Servos to the Servo Controller:
+-Attach the center servo to the first set of pins on the servo controller (Pin 0)
+-Connect the robot's left (port) arm to the next set of pins (Pin 1)
+-Connect the robot's right (starboard) arm to the following set of pins (Pin 2)
+
+#Connect the PWM Servo Controller to the Raspberry Pi:
+-Use the servotester.py script to determine the minimum and maximum PWM values the servo can operate within
+-Calculate the dead center value (midpoint) between the minimum and maximum PWM values
+-Manually attach the arms at the midpoint position to ensure proper alignment
+
+#Update the Configuration File:
+-Add the determined center PWM value as neutral to the config.ini file. Add 50 to neutral for up and subtract 50 for down limits
+
+#Center the Arms Mechanically:
+-Using the servo test tool, set each arm's servo channel to a midpoint value, such as 350 (between the typical range of 100-600)
+-Detach the arms, reposition them to align mechanically with the center position, and then reattach them
+-This ensures the arms are mechanically centered at the specified midpoint value (e.g., 350). For example if you set 350 they should be vertical and perfectly straight
+
+#Calibrate the Center Servo:
+-Set the center servo to its lowest position (e.g., 88) using the servo test tool
+-Reposition and reattach the center servo to align with the lowest point
+-Define this position (e.g., 88) as UPHEIGHT in the config.ini file
+
+### Install 608 bearing to Left / Right arm mount
+
+- Install 608 bearing to Left / Right arm mount
 
 <Image src="/assemble/Step9.png" alt="Step 9" width={384} height={288} />
 
-### Install the RPI and USB MIC
+### Secure Arm upper servo horn
 
-- Insert the USB MIC into the RPI (not shown in the image). 
-- Insert the RPI into the chassis and secure it with four M2*4 screws. Do not overtighten or use longer screws.
+- Connect servo to RPI first, the PORT and STARBOARD servos should go in pin 1 and 2 (the first pin is 0).
+- Secure the arm upper servo horm to the servo
 
 <Image src="/assemble/Step10.png" alt="Step 10" width={384} height={288} />
 
-### Install Shoulder Pitch Servos
+### Attach the Upper Arm mount to the servo
 
-- Secure the right and left **shoulder pitch servos** (black-striped servos) to the torso.
+- Rotate the servo horn as needed to align the bolts
+- Insert m3*14mm screws from the servo side into the arm mount
 
-<Image src="/assemble/IMG_3571.webp" alt="Installing shoulder pitch servos - Step 1" width={3024} height={2268} />
-<Image src="/assemble/IMG_3572.webp" alt="Installing shoulder pitch servos - Step 2" width={3024} height={2268} />
+<Image src="/assemble/Step11.png" alt="Step 11" width={384} height={288} />
 
-### Attach Shoulders to Torso
+### Attach secondary axle lifting rod
 
-- Attach the shoulders onto the torso using screws.
+- Insert the secondary axle main lifting rod into the center servo connection
 
-<Image src="/assemble/IMG_3573.webp" alt="Attaching shoulders to torso" width={3024} height={2268} />
-<Image src="/assemble/IMG_3578.webp" alt="Shoulder attachment detail" width={3024} height={2268} />
+<Image src="/assemble/Step12.png" alt="Step 12" width={384} height={288} />
 
-### Assemble Arms
+### Slide arms into place with upper rod
 
-- Screw together the **shoulder yaw** and **elbow yaw servos** for both arms.
-- The assembled arms should look like the image below.
+- Insert upper lifting rod into the left arm mount
+- Thread the upper liffting rod thorugh the spring assembly into the right arm mount
+- Secure the lifting rod with 4 screws into the top of the left and right arm mounts
 
-<Image src="/assemble/IMG_3575.webp" alt="Arm assembly" width={3024} height={2268} />
+<Image src="/assemble/Step13.png" alt="Step 13" width={384} height={288} />
 
-### Attach Shoulder Yaw Servos to Shoulders
+### Rotate assembly and insert center servo
 
-- Connect the shoulder yaw servos to the shoulders.
+- Rotate the left and right mount arms vertically
+- Insert the center servo lifting rod into the 608 arm bearings
 
-<Image src="/assemble/IMG_3589.webp" alt="Attaching shoulder yaw servos" width={3024} height={2268} />
+<Image src="/assemble/Step14.png" alt="Step 14" width={384} height={288} />
 
-### Connect Wiring for Shoulder Servos
+### Insert sus mounts
 
-- Connect **long wires** to the body-side port on the shoulder yaw servos.
-- Thread the wires through the holes towards the head.
+- Slide the Sus mounts onto the center lifting rod ends
+- Ensure the beveled / lip of the sus mount faces into the chassis
 
-<Image src="/assemble/IMG_3595.webp" alt="Shoulder servo wiring" width={3024} height={2268} />
-<Image src="/assemble/IMG_3593.webp" alt="Shoulder wiring detail" width={3024} height={2268} />
+<Image src="/assemble/Step15.png" alt="Step 15" width={384} height={288} />
 
-### Connect Elbow Yaw Servos
+### Rotate assembly into place and secure
 
-- Connect **shorter wires** from the unused port on the shoulder yaw servo to the corresponding port on the elbow yaw servo.
+- Rotate the assembly into the chassis 
+- Ensure the center servo slides into its mount point
+- Secure the sus mounts with m4*10mm screws
 
-### Attach Hands
+<Image src="/assemble/Step16.png" alt="Step 16" width={384} height={288} />
 
-- Attach the hands to the ends of the arms.
+### Secure Center Servo
 
-### Final Assembly
+- Secure the center servo wit the servo bracket
 
-- Your robot should now look like the image below.
+<Image src="/assemble/Step17.png" alt="Step 17" width={384} height={288} />
 
-<Image src="/assemble/IMG_3599.webp" alt="Final assembled robot" width={3024} height={2268} />
+### Install / Assemble fingers
+
+- Install lazy legs / simplifed legs / or leg assembly as pictured
+- This section is still very much a wip.
+
+<Image src="/assemble/Step18.png" alt="Step 18" width={384} height={288} />
 
 </Steps>
 ---
 
-This completes the assembly of the robot. Ensure all connections are secure, and all screws are tightened with spring washers in place.
+This completes the main assembly of TARS. Ensure all connections are secure, and all screws are tightened.
 
 ### Next Steps
-Once assembly is complete, it's time to [set up](/build/setup) the OpenLCH humanoid robot platform and connect to your Zeroth-01 bot for the first time.
+Once assembly is complete, move to [software setup](/build/setup).
 
 <Callout type="default" emoji="👉">
   **Documentation Contributors:** @alexander-wang03
+  **Documentation Contributors:** @pyrater
 </Callout>
