@@ -558,17 +558,17 @@ To wire the LCD display to your Raspberry Pi, use the following pinout configura
 
 | LCD Pin          | Raspberry Pi GPIO Pin      | Description                                     |
 |------------------|----------------------------|-------------------------------------------------|
-| 1, 17            | 3.3V (Pin 1 or 17)         | 3.3V power supply                               |
-| 2, 4             | 5V (Pin 2 or 4)            | 5V power supply for the backlight (if required) |
-| 6, 9, 14, 20, 25 | GND (Pin 6, 9, etc.)       | Ground connections                              |
+| 1, 17            | 3.3V   (Pin 1 or 17)       | 3.3V power supply                               |
+| 2, 4             | 5V     (Pin 2 or 4)        | 5V power supply for the backlight (if required) |
+| 6, 9, 14, 20, 25 | GND    (Pin 6, 9, etc.)    | Ground connections                              |
 | 11               | GPIO17 (Pin 11)            | Touch IRQ (optional, for touch input)           |
 | 18               | GPIO24 (Pin 18)            | LCD Register Select (DC/RS)                     |
 | 19               | GPIO10 (Pin 19, SPI MOSI)  | SPI MOSI (data sent to the LCD)                 |
-| 21               | GPIO9 (Pin 21, SPI MISO)   | SPI MISO (data received from touchscreen)       |
+| 21               | GPIO9  (Pin 21, SPI MISO)  | SPI MISO (data received from touchscreen)       |
 | 22               | GPIO25 (Pin 22)            | LCD Reset pin                                   |
 | 23               | GPIO11 (Pin 23, SPI SCLK)  | SPI Clock for LCD and touchscreen               |
-| 24               | GPIO8 (Pin 24, SPI CE0)    | SPI Chip Select for LCD                         |
-| 26               | GPIO7 (Pin 26, SPI CE1)    | SPI Chip Select for touchscreen                 |
+| 24               | GPIO8  (Pin 24, SPI CE0)   | SPI Chip Select for LCD                         |
+| 26               | GPIO7  (Pin 26, SPI CE1)   | SPI Chip Select for touchscreen                 |
 
 ### Connecting the I2S Amplifier
 
