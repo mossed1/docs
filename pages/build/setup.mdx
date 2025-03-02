@@ -141,6 +141,11 @@ To ensure smooth operation, use the included install script.
    ```bash
    sudo ./Install.sh
    ```
+4. **Fix permissions**:
+   ```bash
+   sudo chown $(id -u):$(id -g) .env
+   sudo chown $(id -u):$(id -g) src/config.ini
+   ```
 
 ### Connect Hardware
 1. **Microphone**: Plug a USB microphone into your Raspberry Pi.
