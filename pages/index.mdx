@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Cards, Callout } from 'nextra/components'
-import { FaGithub, FaDiscord, FaTwitter, FaDiscourse, FaRobot } from 'react-icons/fa'
+import { FaGithub, FaDiscord, FaTwitter, FaDiscourse, FaRobot, FaStar, FaCode, FaMicrophone, FaBolt, FaVolumeUp, FaMusic, FaTools, FaDotCircle, FaCamera, FaUser, FaBrain, FaCubes, FaPiggyBank, FaCogs } from 'react-icons/fa'
 
 <a 
   href="https://www.youtube.com/@TARS-AI.py.youtube" 
@@ -20,48 +20,269 @@ import { FaGithub, FaDiscord, FaTwitter, FaDiscourse, FaRobot } from 'react-icon
 We're building a hub for robotics enthusiasts with TARS-AI—an open-source project inspired by *Interstellar*.
 
 ### Our Mission
-TARS-AI is an open-source initiative dedicated to engineering a fully autonomous and interactive robot inspired by TARS. Our goal is to create a modular, scalable, and community-driven robotics platform.
+TARS-AI is an open-source initiative dedicated to engineering a fully autonomous and interactive robot inspired by TARS. 
+Our goal is to create a modular, scalable, and community-driven robotics platform.
 
-### Our Robot
-**TARS-AI** is designed with:
-- **Modular Software Architecture**: Components for speech, personality, memory, intent classification, vision, and servo control.
-- **Interactive AI**: A chatbot-based personality with real-time responses.
-- **Affordable & Scalable Design**: Open-source hardware and software for easy replication and customization.
-- **Open-Source Collaboration**: We welcome developers, researchers, and enthusiasts to contribute.
+<div style={{ textAlign: 'center', margin: '2rem 0' }}>
+  TARS-AI is designed to be...
+</div>
 
-### Features
-1. **LLM:**
-- OpenAI **(Recommended)**
-- OpenAI compatibility API (LM Studio, Oobabooga, etc)
-- Tabby (tabbyAPI)
-- Ollama
-- Deepinfra
+<div className="principles-container">
+  <div className="principles-grid">
+    <div className="principle-section">
+      <FaCubes className="principle-icon" />
+      <h3 className="principle-title">Modular & Scalable</h3>
+      <p className="principle-text">Components for speech, personality, memory, vision, and servo control</p>
+    </div>
 
-2. **Text-to-Speech:**
-- Azure TTS
-- Local (E-speak)
-- Local (Piper TTS with custom Voice model) **(Recommended)**
-- Alltalk
-- Silero
-- Eleven Labs
+    <div className="principle-section">
+      <FaPiggyBank className="principle-icon" />
+      <h3 className="principle-title">Affordable</h3>
+      <p className="principle-text">Open-source hardware and software for easy replication</p>
+    </div>
 
-3. **Speech-to-Text:**
-- Vosk
-- Faster-Whisper **(Recommended)**
-- Silero
-- Externally hosted Whisper
+    <div className="principle-section">
+      <FaGithub className="principle-icon" />
+      <h3 className="principle-title">Open Source</h3>
+      <p className="principle-text">We welcome developers, researchers, and enthusiasts</p>
+    </div>
+  </div>
+</div>
 
-4. **Vision Handling:**
-- Saleforce Blip
 
-5. **Tool Utilization:**
-- Custom Module Engine
-- Function Calling (two methods)
-- Stable Diffusion
-- Dall-e
-- Home Assistant
-- Volume Control
-- Persona Settings
+<h1 className="features-heading">Features</h1>
+<div className="features-container">
+  <div className="features-grid">
+    <div className="features-column">
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaCogs className="feature-icon" /> Servo Control
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <div>
+              <h3>Under construction 🚧</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaMicrophone className="feature-icon" /> Speech-to-Text
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <FaStar className="item-icon recommended-icon" />
+            <div>
+              <h3>Faster-Whisper</h3>
+              <p className="recommended">Recommended</p>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Vosk</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Silero</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Whisper (External GPU)</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaTools className="feature-icon" /> Tool Utilization
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Web Search</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Weather API</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Stable Diffusion / Dall-E</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Home Assistant</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Volume Control</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Character Settings Control</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaCamera className="feature-icon" /> Vision
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Salesforce BLIP</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div className="features-column">
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaRobot className="feature-icon" /> LLM
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <FaStar className="item-icon recommended-icon" />
+            <div>
+              <h3>OpenAI</h3>
+              <p className="recommended">Recommended</p>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>LM Studio</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Oobabooga</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>TabbyAPI</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Ollama</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Deep Infra</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaUser className="feature-icon" /> Character
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <div>
+              <h3>Under construction 🚧</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaBrain className="feature-icon" /> Memory
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>HybridRAG</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-section">
+        <h2 className="feature-title">
+          <FaVolumeUp className="feature-icon" /> Text-to-Speech
+        </h2>
+        <div className="feature-items">
+          <div className="feature-item">
+            <FaStar className="item-icon recommended-icon" />
+            <div>
+              <h3>Piper TTS</h3>
+              <p className="recommended">Recommended</p>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Eleven Labs</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Azure TTS</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>eSpeak (Local)</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>AllTalk</h3>
+            </div>
+          </div>
+          <div className="feature-item">
+            <FaDotCircle className="item-icon" />
+            <div>
+              <h3>Silero</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 ### Join the Community
 Build your own TARS and contribute to the future of robotics! We welcome your feedback, issues, and pull requests in [GitHub](https://github.com/TARS-AI-Community/TARS-AI) and [Discord](https://discord.gg/uXkqkz3mJJ).
@@ -90,4 +311,5 @@ Build your own TARS and contribute to the future of robotics! We welcome your fe
 <Callout type="default" emoji="👉">
   **Documentation Contributors:** @alexander-wang03, @pyrater
 </Callout>
+
 
