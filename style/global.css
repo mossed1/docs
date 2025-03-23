@@ -152,3 +152,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Table styles */
+table a {
+    color: #0066cc !important;
+    text-decoration: underline !important;
+}
