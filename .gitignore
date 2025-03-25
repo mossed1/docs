@@ -2,3 +2,5 @@
 node_modules
 *.DS_Store
 .vercel
+pnpm-lock.yaml
+.pnpm-store/
