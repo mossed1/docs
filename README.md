@@ -7,8 +7,8 @@ To contribute to the documentation, make sure you have Node.js installed on your
 Clone the repo and run:
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 You can now view your changes to the website live at http://localhost:3000/
