@@ -12,6 +12,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Bambu Lab Printer",
     countryLinks: {
       "US": "https://us.store.bambulab.com/collections/3d-printer",
+      "CA": "https://ca.store.bambulab.com/collections/3d-printer",
     },
     defaultLink: "https://us.store.bambulab.com/collections/3d-printer"
   },
@@ -20,6 +21,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "TPU Filament (Bambu)",
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/tpu-for-ams",
+      "CA": "https://ca.store.bambulab.com/products/tpu-for-ams",
     },
     defaultLink: "https://us.store.bambulab.com/products/tpu-for-ams"
   },
@@ -28,6 +30,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "PETG Filament (Bambu)",
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/petg-hf",
+      "CA": "https://ca.store.bambulab.com/products/petg-hf",
     },
     defaultLink: "https://us.store.bambulab.com/products/petg-hf"
   },
@@ -36,6 +39,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "PLA Filament (Optional)",
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/pla-basic-filament?skr=yes",
+      "CA": "https://ca.store.bambulab.com/products/pla-basic-filament?skr=yes",
     },
     defaultLink: "https://us.store.bambulab.com/products/pla-basic-filament?skr=yes"
   },

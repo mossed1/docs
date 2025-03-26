@@ -55,24 +55,37 @@ const CountryLink: React.FC<CountryLinkProps> = ({ productId, children }) => {
     setIsLoading(false);
   };
   
-  // Initial link setup
+  // Initial link setup and listen for localStorage changes
   useEffect(() => {
+    // Initial update
     updateLink();
-  }, [productId]);
-  
-  // Listen for country change events
-  useEffect(() => {
-    // Handler for the country change event
-    const handleCountryChange = () => {
+    
+    // Create a handler for storage events
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'selectedCountry') {
+        updateLink();
+      }
+    };
+    
+    // Also listen for custom event for components on the same page
+    const handleCustomEvent = () => {
       updateLink();
     };
     
-    // Add event listener
-    window.addEventListener('countryChange', handleCountryChange);
+    // Add event listeners
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('countryChange', handleCustomEvent);
+    
+    // Create a polling mechanism for backup
+    const intervalId = setInterval(() => {
+      updateLink();
+    }, 2000); // Check every 2 seconds
     
     // Cleanup
     return () => {
-      window.removeEventListener('countryChange', handleCountryChange);
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('countryChange', handleCustomEvent);
+      clearInterval(intervalId);
     };
   }, [productId]);
   
