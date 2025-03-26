@@ -260,61 +260,10 @@ Last updated: 25/03/2025
 ## Next Steps
 In addition to the BoM, also see our [3D printing guide](/build/3d_print).
 
+## Contributing to the BoM
+
+We welcome contributions to the BoM. Please see our [contribution guidelines](/contribute/docs#contributing-to-the-bom) for more information.
+
 <Callout type="default" emoji="👉">
   **Documentation Contributors:** @alexander-wang03, @pyrater
 </Callout>
-
-
-## Contributing to the BoM
-
-We welcome contributions to help make TARS-AI accessible worldwide! Before contributing, please read our general [contribution guidelines](/contribute).
-
-### Adding New Items
-
-To add a new item to the Bill of Materials:
-
-1. Add the item to `lib/productLinks.ts`:
-
-```typescript
-export const productLinks: Record<string, ProductLink> = {
-  // ... existing items ...
-  "new-product-id": {
-    id: "new-product-id",
-    name: "Product Name",
-    countryLinks: {
-    "US": "https://www.example.com/product-us",
-    // Add more country-specific links as available
-    },
-    defaultLink: "https://www.example.com/product-us" // Usually the US link
-  },
-};
-```
-
-2. Add the item to the BoM table in `pages/build/bom.mdx`:
-```mdx
-<Tr>
-  <Td>Product Name</Td>
-  <Td>Product description</Td>
-  <Td>1</Td>
-  <Td><CountryLink productId="new-product-id">Buy</CountryLink></Td>
-</Tr>
-```
-
-### Adding Country-Specific Links
-
-To add links for your country to existing items:
-
-1. Find the item in `lib/productLinks.ts`
-2. Add your country's link to the `countryLinks` object. You can find your country's code (i.e. "GB" for Great Britain) under `lib/countries.ts`.
-```typescript
-"raspberry-pi-5": {
-  id: "raspberry-pi-5",
-  name: "Raspberry Pi 5",
-  countryLinks: {
-  "US": "https://www.amazon.com/...",
-  "GB": "https://www.amazon.co.uk/...", // Add your country
-  "DE": "https://www.amazon.de/..." // Add your country
-  },
-  defaultLink: "https://www.amazon.com/..."
-},
-```

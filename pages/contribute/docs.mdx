@@ -1,0 +1,125 @@
+import { Callout } from 'nextra/components'
+
+# Contributing to Documentation
+
+## Overview
+
+Our documentation is written in MDX (Markdown + JSX) and uses [Nextra](https://nextra.site/) as the documentation framework. The documentation source files are hosted on GitHub at [TARS-AI-Community/docs](https://github.com/TARS-AI-Community/docs).
+
+## Getting Started
+
+1. Follow the general [contribution guidelines](/contribute/guidelines) to fork and clone the docs repository.
+2. Make sure you have `node` installed. If you do not have it installed, install it at [nodejs.org](https://nodejs.org/en).
+2. Make sure you have `pnpm` installed. If you do not have it installed, install it using:
+   ```bash
+   npm install -g pnpm
+   ```
+3. Install the required dependencies:   
+   ```bash
+   pnpm install
+   ```
+4. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+
+## Documentation Structure
+
+Our documentation is organized as follows:
+
+- `pages/` - Contains all documentation pages
+  - `_meta.tsx` - Defines the navigation structure
+  - `index.mdx` - Home page
+  - Other directories contain section-specific content
+
+## Writing Guidelines
+
+### File Format
+- Use `.mdx` extension for documentation files
+- Place images in the `public/` directory
+- Use relative links for internal navigation
+
+### Markdown Features
+- Use headings appropriately (H1 for page title, H2 for sections, etc.)
+- Include code examples with syntax highlighting
+- Use callouts for important information
+- Add images with captions when helpful
+
+### Components
+We provide several built-in components:
+- `<Callout>` for important notes
+- `<Steps>` for step-by-step instructions
+- `<Tabs>` for organizing related content
+- `<Image>` for responsive images
+
+Example:
+```mdx
+<Callout type="info">
+  Important information goes here
+</Callout>
+```
+
+## Testing Changes
+
+1. Preview your changes locally using `pnpm dev`
+2. Check that:
+   - All links work
+   - Images display correctly
+   - Code blocks are properly formatted
+   - Navigation structure is correct
+
+## Contributing to the BoM
+
+### Adding New Items
+
+To add a new item to the Bill of Materials:
+
+1. Add the item to `lib/productLinks.ts`:
+
+```typescript
+export const productLinks: Record<string, ProductLink> = {
+  // ... existing items ...
+  "new-product-id": {
+    id: "new-product-id",
+    name: "Product Name",
+    countryLinks: {
+    "US": "https://www.example.com/product-us",
+    // Add more country-specific links as available
+    },
+    defaultLink: "https://www.example.com/product-us" // Usually the US link
+  },
+};
+```
+
+2. Add the item to the BoM table in `pages/build/bom.mdx`:
+```mdx
+<Tr>
+  <Td>Product Name</Td>
+  <Td>Product description</Td>
+  <Td>1</Td>
+  <Td><CountryLink productId="new-product-id">Buy</CountryLink></Td>
+</Tr>
+```
+
+### Adding Country-Specific Links
+
+To add links for your country to existing items:
+
+1. Find the item in `lib/productLinks.ts`
+2. Add your country's link to the `countryLinks` object. You can find your country's code (i.e. "GB" for Great Britain) under `lib/countries.ts`.
+```typescript
+"raspberry-pi-5": {
+  id: "raspberry-pi-5",
+  name: "Raspberry Pi 5",
+  countryLinks: {
+  "US": "https://www.amazon.com/...",
+  "GB": "https://www.amazon.co.uk/...", // Add your country
+  "DE": "https://www.amazon.de/..." // Add your country
+  },
+  defaultLink: "https://www.amazon.com/..."
+},
+```
+
+<Callout type="default" emoji="👉">
+  **Documentation Contributors:** @alexander-wang03
+</Callout> 
