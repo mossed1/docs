@@ -48,6 +48,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Raspberry Pi 5",
     countryLinks: {
       "US": "https://www.amazon.com/Raspberry-Pi-Quad-core-Cortex-A76-Processor/dp/B0CTQ3BQLS/",
+      "CA": "https://a.co/d/9CoZ6or",
     },
     defaultLink: "https://www.amazon.com/Raspberry-Pi-Quad-core-Cortex-A76-Processor/dp/B0CTQ3BQLS/"
   },
@@ -56,6 +57,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "OSOYOO 3.5\" LCD Display",
     countryLinks: {
       "US": "https://www.amazon.com/OSOYOO-3-5inch-Display-Protective-Raspberry/dp/B09CD9W6NQ/",
+      "CA": "https://a.co/d/5NYHBQR",
     },
     defaultLink: "https://www.amazon.com/OSOYOO-3-5inch-Display-Protective-Raspberry/dp/B09CD9W6NQ/"
   },
@@ -64,6 +66,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "PCA9685 Servo Driver",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B00EIB0U7A/",
+      "CA": "https://a.co/d/bMsC0lm",
     },
     defaultLink: "https://www.amazon.com/gp/product/B00EIB0U7A/"
   },
@@ -72,6 +75,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "12V to 6V Buck Converter",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B07SGJSLDL/",
+      "CA": "https://a.co/d/59a7i9D",
     },
     defaultLink: "https://www.amazon.com/gp/product/B07SGJSLDL/"
   },
@@ -80,6 +84,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "USB Buck Converter",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B07X5H4M42/",
+      "CA": "https://a.co/d/abI7Dbe",
     },
     defaultLink: "https://www.amazon.com/gp/product/B07X5H4M42/"
   },
@@ -96,6 +101,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "LiPo Battery",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B0BYNSH6Q7/",
+      "CA": "https://a.co/d/96gR1yJ"
     },
     defaultLink: "https://www.amazon.com/gp/product/B0BYNSH6Q7/"
   },
@@ -104,6 +110,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "PCT-214 Wire Connectors",
     countryLinks: {
       "US": "https://www.amazon.com/smseace-Conductor-Connectors-Connection-Terminal/dp/B087PBHG9L/",
+      "CA": "https://a.co/d/5MsLj3e"
     },
     defaultLink: "https://www.amazon.com/smseace-Conductor-Connectors-Connection-Terminal/dp/B087PBHG9L/"
   },
@@ -112,6 +119,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "MG996R Servos",
     countryLinks: {
       "US": "https://www.amazon.com/diymore-6-Pack-MG996R-Digital-Helicopter/dp/B0CGRP59HJ/",
+      "CA": "https://a.co/d/99rqy0O"
     },
     defaultLink: "https://www.amazon.com/diymore-6-Pack-MG996R-Digital-Helicopter/dp/B0CGRP59HJ/"
   },
@@ -128,6 +136,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "SG90 Micro Servos",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B07L2SF3R4/",
+      "CA": "https://a.co/d/2wvfbug"
     },
     defaultLink: "https://www.amazon.com/gp/product/B07L2SF3R4/"
   },
@@ -136,6 +145,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Bearings",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B07FW26HD4/",
+      "CA": "https://a.co/d/gEZuu3t"
     },
     defaultLink: "https://www.amazon.com/gp/product/B07FW26HD4/"
   },
@@ -144,6 +154,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Springs",
     countryLinks: {
       "US": "https://www.amazon.com/uxcell-Stainless-Compression-Spring-Capacity/dp/B09139BWH7",
+      "CA": "https://a.co/d/gEZuu3t"
     },
     defaultLink: "https://www.amazon.com/uxcell-Stainless-Compression-Spring-Capacity/dp/B09139BWH7"
   },
@@ -168,6 +179,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Metal Rods 5mm",
     countryLinks: {
       "US": "https://www.amazon.com/dp/B005WPAKGC",
+      "CA": "https://a.co/d/1XdMgYk"
     },
     defaultLink: "https://www.amazon.com/dp/B005WPAKGC"
   },
@@ -176,6 +188,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Metal Rods 3mm",
     countryLinks: {
       "US": "https://www.amazon.com/dp/B005WPAJKY",
+      "CA": "https://a.co/d/9qHcJ62"
     },
     defaultLink: "https://www.amazon.com/dp/B005WPAJKY"
   },
@@ -184,6 +197,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Linkage",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B0CRDRWYXW/",
+      "CA": "https://a.co/d/e8L6H7Y"
     },
     defaultLink: "https://www.amazon.com/gp/product/B0CRDRWYXW/"
   },
@@ -192,6 +206,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "JR Servo Extension Wires",
     countryLinks: {
       "US": "https://www.amazon.com/OliYin-7-87in-Quadcopter-Extension-Futaba/dp/B0711TBZY2/",
+      "CA": "https://a.co/d/bDIlS8e"
     },
     defaultLink: "https://www.amazon.com/OliYin-7-87in-Quadcopter-Extension-Futaba/dp/B0711TBZY2/"
   },
@@ -200,6 +215,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Mini USB Microphone",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B086DRRP79/",
+      "CA": "https://a.co/d/hf1fp7L"
     },
     defaultLink: "https://www.amazon.com/gp/product/B086DRRP79/"
   },
@@ -208,6 +224,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "MAX98357 Audio Amplifier",
     countryLinks: {
       "US": "https://www.amazon.com/dp/B0BTBS5NW2/",
+      "CA": "https://a.co/d/2tc800r"
     },
     defaultLink: "https://www.amazon.com/dp/B0BTBS5NW2/"
   },
@@ -224,6 +241,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "OV5647 Camera Module",
     countryLinks: {
       "US": "https://a.co/d/50BbE8a",
+      "CA": "https://a.co/d/654lEEN"
     },
     defaultLink: "https://a.co/d/50BbE8a"
   },
@@ -232,6 +250,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "15Pin to 22Pin Camera Ribbon Cable",
     countryLinks: {
       "US": "https://www.amazon.com/Onyehn-Raspberry-Camera-Cable-Ribbon/dp/B07XZ5DX5H/",
+      "CA": "https://a.co/d/gYzFbJ5"
     },
     defaultLink: "https://www.amazon.com/Onyehn-Raspberry-Camera-Cable-Ribbon/dp/B07XZ5DX5H/"
   },
@@ -240,6 +259,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "M3 Assorted Flat Head Screw Kit",
     countryLinks: {
       "US": "https://a.co/d/bC30GoT",
+      "CA": "https://a.co/d/anPAyTs"
     },
     defaultLink: "https://a.co/d/bC30GoT"
   },
@@ -248,6 +268,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "M3 Asstd Grub Screws",
     countryLinks: {
       "US": "https://www.amazon.com/dp/B07N7C6HKP/",
+      "CA": "https://a.co/d/hKRXqgt"
     },
     defaultLink: "https://www.amazon.com/dp/B07N7C6HKP/"
   },
@@ -256,6 +277,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "M2.x Self Tapping",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B0BLY1MPLR/",
+      "CA": "https://a.co/d/8wvMdGF"
     },
     defaultLink: "https://www.amazon.com/gp/product/B0BLY1MPLR/"
   }
