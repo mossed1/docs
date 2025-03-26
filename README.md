@@ -4,7 +4,13 @@ This is where you can find our documentation, guides, and more.
 
 To contribute to the documentation, make sure you have Node.js installed on your computer.
 
-Clone the repo and run:
+If you do not have `pnpm` installed, install it using:
+
+```bash
+npm install -g pnpm
+```
+
+To run the website locally, run:
 
 ```bash
 pnpm install
