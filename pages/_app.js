@@ -1,6 +1,7 @@
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 import Head from 'next/head';
 import '../style/global.css';
+import '../style/country-selector.css';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,6 +19,11 @@ function MyApp({ Component, pageProps }) {
             `,
           }}
         />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+        <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
       </Head>
       <GoogleAnalytics trackPageViews />
       <Component {...pageProps} />

@@ -1,4 +1,13 @@
 import { Callout, Table, Td, Th, Tr } from 'nextra/components'
+import dynamic from 'next/dynamic'
+
+export const CountrySelector = dynamic(
+  () => import('../../components/CountrySelector'),
+  {
+    ssr: false,
+    loading: () => <div>Loading country selector...</div>
+  }
+)
 
 <Callout type="error" emoji="🚫">
 TARS-AI is in the early stages of development. You may expect rapid changes to the platform.
@@ -9,13 +18,16 @@ The Bill of Materials (BoM) is not yet finalized. For more information, see our 
 
 # Bill of Materials (BoM)
 
-TARS-AI is constructed from both prefabricated and 3D printed parts.
-
 The following materials should be ordered for the assembly of TARS-AI. For 3D printing, see our [3D printing guide](/build/3d_print).
 
-<Callout type="warning" emoji="⚠️">
-The links provided are for **U.S. vendors**. If you are not in the U.S., use the equivalent vendors in your region.
-</Callout>
+<div style={{ margin: '20px 0' }}>
+  <div style={{ marginTop: '15px' }}>
+    <CountrySelector 
+      onSelect={(country) => console.log('Selected country:', country)}
+      placeholder="Select Your Region"
+    />
+  </div>
+</div>
 
 Last updated: 13/03/2025
 
