@@ -1,7 +1,6 @@
 .country-selector-wrapper {
   width: 100%;
   max-width: 450px;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -197,7 +196,6 @@
 @media (max-width: 768px) {
   .country-selector-wrapper {
     max-width: 100%;
-    margin: 0;
   }
 
   .country-selector-wrapper .country-selector-btn {

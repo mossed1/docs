@@ -27,7 +27,7 @@ interface CountrySelectorProps {
 
 const CountrySelector: React.FC<CountrySelectorProps> = ({ 
   onSelect, 
-  placeholder = "-- Select Your Country --" 
+  placeholder = "-- Select Your Region --" 
 }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -44,6 +44,20 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
     }
   }, []);
 
+  // Load selected country from localStorage on component mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedCountry = localStorage.getItem('selectedCountry');
+      if (savedCountry) {
+        try {
+          setSelectedCountry(JSON.parse(savedCountry));
+        } catch (e) {
+          console.error('Error parsing saved country', e);
+        }
+      }
+    }
+  }, []);
+
   const toggleDropdown = () => {
     setIsActive(!isActive);
   };
@@ -56,6 +70,10 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
     setSelectedCountry(country);
     setIsActive(false);
     setSearchQuery('');
+    
+    // Save to localStorage
+    localStorage.setItem('selectedCountry', JSON.stringify(country));
+    
     if (onSelect) onSelect(country);
   };
 
