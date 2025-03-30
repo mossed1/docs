@@ -41,6 +41,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/pla-basic-filament?skr=yes",
       "CA": "https://ca.store.bambulab.com/products/pla-basic-filament?skr=yes",
+      "AU": "https://au.store.bambulab.com/products/pla-matte?id=42647402479779",
     },
     defaultLink: "https://us.store.bambulab.com/products/pla-basic-filament?skr=yes"
   },
