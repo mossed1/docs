@@ -51,6 +51,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://www.amazon.com/Raspberry-Pi-Quad-core-Cortex-A76-Processor/dp/B0CTQ3BQLS/",
       "CA": "https://a.co/d/9CoZ6or",
+      "AU": "https://www.amazon.com.au/Raspberry-Pi-LPDDR4-Quad-Core-Cortex-A76/dp/B0CK2FCG1K/ref=sr_1_1?crid=TSIKKALSWN7F&dib=eyJ2IjoiMSJ9.EIRWMNAsT_JPS2JI4yVop9F4vMGlJ3WuxWwfjxlQGu8icRG7WnUfqwIutmsiAGlqMvDLshfzzSJXYNX5_DemeoydNpxPXfxtejBhWqn7MCoac9diiK7Cr6-EnxI4XFXbLhnKaSyFJ7Jyd6YMdVirjBe-HQdFKdz0LoV-4dquOzyRGry1Kw--piJeNk9KukUDlzIoOHN6sHTlnFKYg1uYPXXkk6PfXJHRS9y_WRNXNQvs50YjG7JSvd69ZqcgLqyiep83Jnaj8puH8Gf1HM113mlNwTnuAtuLa5aZBQmuGi42HGe2GtdksnL5-9leiHyu9AI321zeR57PfQlIUEX48_u8kaI_DwYIrNDdN9jDukcR7Z6ey1UqNKmejEWkAkOY9mLSJsluTx_S58G2AztOByhcpSnpI8S-N93UC9L_IZlSRn3OtnIGPrbc7_5B7_5O.FSymT8KHlsjtEdkGwbP6xtTwtA1Dd2veae6jjafYky4&dib_tag=se&keywords=raspberry+pi+5&qid=1743303252&refinements=p_n_prime_domestic%3A6845356051&rnid=6963563051&sprefix=rasberry+pi+%2Caps%2C253&sr=8-1",
     },
     defaultLink: "https://www.amazon.com/Raspberry-Pi-Quad-core-Cortex-A76-Processor/dp/B0CTQ3BQLS/"
   },
