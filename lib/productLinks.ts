@@ -13,6 +13,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://us.store.bambulab.com/collections/3d-printer",
       "CA": "https://ca.store.bambulab.com/collections/3d-printer",
+      "Au": "https://au.store.bambulab.com/collections/3d-printer"
     },
     defaultLink: "https://us.store.bambulab.com/collections/3d-printer"
   },
@@ -22,6 +23,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/tpu-for-ams",
       "CA": "https://ca.store.bambulab.com/products/tpu-for-ams",
+      "AU": "https://au.store.bambulab.com/products/tpu-85a-tpu-90a?id=573760925208563742"
     },
     defaultLink: "https://us.store.bambulab.com/products/tpu-for-ams"
   },
@@ -31,6 +33,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/petg-hf",
       "CA": "https://ca.store.bambulab.com/products/petg-hf",
+      "AU": "https://au.store.bambulab.com/products/petg-hf?id=44822190096547"
     },
     defaultLink: "https://us.store.bambulab.com/products/petg-hf"
   },
@@ -40,6 +43,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://us.store.bambulab.com/products/pla-basic-filament?skr=yes",
       "CA": "https://ca.store.bambulab.com/products/pla-basic-filament?skr=yes",
+      "AU": "https://au.store.bambulab.com/products/pla-matte?id=42647402479779"
     },
     defaultLink: "https://us.store.bambulab.com/products/pla-basic-filament?skr=yes"
   },
@@ -49,6 +53,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://www.amazon.com/Raspberry-Pi-Quad-core-Cortex-A76-Processor/dp/B0CTQ3BQLS/",
       "CA": "https://a.co/d/9CoZ6or",
+      "AU": "https://www.amazon.com.au/Raspberry-Pi-LPDDR4-Quad-Core-Cortex-A76/dp/B0CK2FCG1K/ref=sr_1_1?crid=TSIKKALSWN7F&dib=eyJ2IjoiMSJ9.EIRWMNAsT_JPS2JI4yVop9F4vMGlJ3WuxWwfjxlQGu8icRG7WnUfqwIutmsiAGlqMvDLshfzzSJXYNX5_DemeoydNpxPXfxtejBhWqn7MCoac9diiK7Cr6-EnxI4XFXbLhnKaSyFJ7Jyd6YMdVirjBe-HQdFKdz0LoV-4dquOzyRGry1Kw--piJeNk9KukUDlzIoOHN6sHTlnFKYg1uYPXXkk6PfXJHRS9y_WRNXNQvs50YjG7JSvd69ZqcgLqyiep83Jnaj8puH8Gf1HM113mlNwTnuAtuLa5aZBQmuGi42HGe2GtdksnL5-9leiHyu9AI321zeR57PfQlIUEX48_u8kaI_DwYIrNDdN9jDukcR7Z6ey1UqNKmejEWkAkOY9mLSJsluTx_S58G2AztOByhcpSnpI8S-N93UC9L_IZlSRn3OtnIGPrbc7_5B7_5O.FSymT8KHlsjtEdkGwbP6xtTwtA1Dd2veae6jjafYky4&dib_tag=se&keywords=raspberry+pi+5&qid=1743303252&refinements=p_n_prime_domestic%3A6845356051&rnid=6963563051&sprefix=rasberry+pi+%2Caps%2C253&sr=8-1"
     },
     defaultLink: "https://www.amazon.com/Raspberry-Pi-Quad-core-Cortex-A76-Processor/dp/B0CTQ3BQLS/"
   },
@@ -224,7 +229,8 @@ export const productLinks: Record<string, ProductLink> = {
     name: "MAX98357 Audio Amplifier",
     countryLinks: {
       "US": "https://www.amazon.com/dp/B0BTBS5NW2/",
-      "CA": "https://a.co/d/2tc800r"
+      "CA": "https://a.co/d/2tc800r",
+      "AU": "https://www.amazon.com.au/AITIAO-4Pcs-Amplifier-Amplifiers-Filterless/dp/B0B5TTJC1M/ref=sr_1_1?crid=3PXG2LFF5JFHZ&dib=eyJ2IjoiMSJ9.WIuT8ccl_KHX2Nc4jWKLjMzxRxPDLggtvQkts_gpp9v3QBAoiseP7a2jJ3LzRa6f2YPn9dYY4ugWwUjc6zLvp7VEYdVoIDM6QtcmPYlNzvezwMOCqfvquwdk0VicgH0V2XlCuuqDTjvbHiiKZu3bUvDhNr0xyibo_k0cUTrW6pFnJjrceDDjxI002jDxSYd4M9k2V3zydgphlQDOAdZpKIXK_oBGISIrhPw3SBjEzsOWM96jQLxp0hAhL0RjexdNBFRF7-D2sIqjz6BZ-cZNwv_wT72RyxNXofsrvT6H3D4GHiwlPKwB7UEw1mcIQll1casp6GdPCg5uqtCS11Apao5AHxQDHB-odP5LHnTK_ST6eAn-cext1mPysDQeXGs3rC0mzKuX-IBl7OC57AkDYkaSpf5RDIHr_YOhjbiZFjyzTce3YQy1CaMoHuKsJSxN.Vc9Ebr7aFLiDOvFGtRo26sc-q1qNCWdjdu7_fR5p_qk&dib_tag=se&keywords=i2s+audio+amplifier+4pc&qid=1743304268&sprefix=i2s+audio+amplifier+4%2Caps%2C459&sr=8-1"
     },
     defaultLink: "https://www.amazon.com/dp/B0BTBS5NW2/"
   },
@@ -233,6 +239,7 @@ export const productLinks: Record<string, ProductLink> = {
     name: "3W 8Ω Speaker",
     countryLinks: {
       "US": "https://www.amazon.com/dp/B07GJ4GH67/",
+      "AU": "https://www.amazon.com.au/ATNSINC-Full-Range-Advertising-Separating-Interface/dp/B0DSZJ8TXD/ref=sr_1_2?crid=19CI2JNLA2ILQ&dib=eyJ2IjoiMSJ9.k3NvhbvvVuTmwSc8dpntX7wFXjODw4PXjQ0eRmDrbgZoOkqvtZhJFhhqgAMlQKMg4o6zaZBV85yD4nA1zpJFxrfEYmLBvayxMMfQ-QJnhV84UEEo_H_2z0msVZqrhrTmZBJ6orgPZ6cODPSV91cNlm5bajm6ShofzBKgJVKJxy61rMs02mPaBph0Ktk5urwLrQM__PrneJ5scEn8UtYjP3jGMf0MLVq4qNaUIc2wiLNSo0DK2-rpbZNVyNtcg6UrY-L7I0HrDPIvKS4qnbbsdnb2f8fHuZEJFkAxnpt8gt3rF1WtEu3YItXMsaTrlDpuh0LFFpSgrRSpdsJnzBRKgcGWZzjcL7OXg6xEckFv3C5Qs3QHI1V95nZc8dXidNU0rwnxcOP-lgwBkZx2oscHip7WKOIO4R48FN8qyPCOtlC90vKUla4odeQVlzVTJ-Eq.V7e2s2GMyweU-fss3wcgHY6cXvuQIQW4NPNgfOLP0jk&dib_tag=se&keywords=Speaker%2B3%2BWatt%2B8%2BOhm%2BSingle%2BCavity%2BMini%2BSpeaker%2BFull-Range%2BCavity%2BMobile%2BPortable%2BAdvertising%2BMachine%2BSpeaker%2BConnector%2BSeparating%2BInterface%2B3.3V%2B5V&qid=1743303395&sprefix=%2Caps%2C218&sr=8-2&th=1"
     },
     defaultLink: "https://www.amazon.com/dp/B07GJ4GH67/"
   },
