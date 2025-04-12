@@ -150,7 +150,8 @@ export const productLinks: Record<string, ProductLink> = {
     name: "Bearings",
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B07FW26HD4/",
-      "CA": "https://a.co/d/gEZuu3t"
+      "CA": "https://a.co/d/gEZuu3t",
+      "AU": "https://www.amazon.com.au/VGOL-Bearings-Multifunctional-Shielded-6mmx15mmx5mm/dp/B0D314ZXM2/ref=sr_1_2?crid=133M23T5A21UF&dib=eyJ2IjoiMSJ9.McPEOZYKNlkEoxadpVp91a8O7_JPGYW_AsALE3-VO87ZAN6Vx4j7UZ8aFrXHvZ0zoHC81hwGrYWI0MUhKhkp_ZRMyjo0CtdNdEG_NHdh1AfgihhGA69E_Wu-Mq51BbMvAJjpo4cDVn5h-Zg8Au4A1yrG7n6xbGfLX4CzfmYIdTEEuFtKQ6UGPZIJTrlsaoEIfkldZKbPC6NmaGdNbQlEBsyPgQ2AsdnRWKqaZuAItK0QYibCti-FYmzqGLgfnTx31uxlrAnsTcvWXODaUdQSHIgUFtZPlQNwhEMtSUZ1vXE.YYly2WTYutVJNorkpR3h4jvOK9lOL74TALtSL0IJkJo&dib_tag=se&keywords=6mm+x+15mm+x+5mm+Carbon+Steel+Bearings&qid=1744440169&refinements=p_n_prime_domestic%3A6845356051&rnid=6963563051&sprefix=6mm+x+15mm+x+5mm+carbon+steel+bearings%2Caps%2C215&sr=8-2"
     },
     defaultLink: "https://www.amazon.com/gp/product/B07FW26HD4/"
   },
