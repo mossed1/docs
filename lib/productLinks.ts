@@ -72,6 +72,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B00EIB0U7A/",
       "CA": "https://a.co/d/bMsC0lm",
+      "AU": "https://www.amazon.com.au/DIGISHUO-PCA9685-Channel-Compatible-Raspberry/dp/B0D6B25HWX/ref=sr_1_1?crid=3I45DXYXES1HM&dib=eyJ2IjoiMSJ9.iKxTwvcOIZWcm4DHXE-KO7I3cJWhlwqHUpuQZpQVsMNptND3uAFjUMDjjZHIH1GTmQWGBM8yQ-uPudEZRbaA2V1_gFqyM86bV9YtT1QyJaVi19GqVqHBQOfZqepQMCeN2iYaWhZTQo4mdxkc2n10nQAOknZEW93K9TlJg5srmj0eOnGam7ZoSC-i2z5BUfb3Y1hRx-DRLdTXhAtQ0K5lMeFStB5yb7CkbqZ6QiPF6kVaTRCfeVK6iVSYJOByWkOq82yCP_NA5nzXj5-7Velku8aMePTvVA3bQu5wYEkgSmw.oMqMIZynmg1F981W4BbbOk6qcA1815D_Sm5E4OBe8cA&dib_tag=se&keywords=Adafruit+16-Channel+12-bit+PWM%2FServo+Driver+with+I2C+Interface&qid=1744529454&refinements=p_n_prime_domestic%3A6845356051&rnid=6963563051&sprefix=%2Caps%2C209&sr=8-1",
     },
     defaultLink: "https://www.amazon.com/gp/product/B00EIB0U7A/"
   },
