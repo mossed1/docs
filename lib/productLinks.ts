@@ -13,7 +13,7 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://us.store.bambulab.com/collections/3d-printer",
       "CA": "https://ca.store.bambulab.com/collections/3d-printer",
-      "Au": "https://au.store.bambulab.com/collections/3d-printer",
+      "AU": "https://au.store.bambulab.com/collections/3d-printer",
       "PL": "https://eu.store.bambulab.com/collections/3d-printer"
     },
     defaultLink: "https://us.store.bambulab.com/collections/3d-printer"
@@ -79,7 +79,8 @@ export const productLinks: Record<string, ProductLink> = {
     countryLinks: {
       "US": "https://www.amazon.com/gp/product/B00EIB0U7A/",
       "CA": "https://a.co/d/bMsC0lm",
-      "PL": "https://allegro.pl/oferta/modul-sterownika-pwm-pca9685-i2c-16-kanal-12-bit-15028398866?offerId=15028398866&inventoryUnitId=dgKk4snwZqwIDgHLAN0asA&adGroupId=NDc2M2EyYTgtMzllYy00Yzg0LThiODItZjg3Njk5ZTMyNjhjAA&campaignId=OWZmMzUzMmUtN2YwYS00ZmU3LWE2YWQtNTY4NzM3MGQ0MWRjAA&clientId=NDU3MzI0MjgA&sig=9f29a6976057e8111c9428f1c9a1b2a1&utm_feed=aa34192d-eee2-4419-9a9a-de66b9dfae24&utm_content=supercena&utm_source=google&utm_medium=ads&gad_source=1&gclid=CjwKCAiArKW-BhAzEiwAZhWsIEiar9O8zairZtEva_XHMscS4XJ0XhR7OCxS1CvIZ9Mf7bbvwiH9YxoCS8sQAvD_BwE"
+      "PL": "https://allegro.pl/oferta/modul-sterownika-pwm-pca9685-i2c-16-kanal-12-bit-15028398866?offerId=15028398866&inventoryUnitId=dgKk4snwZqwIDgHLAN0asA&adGroupId=NDc2M2EyYTgtMzllYy00Yzg0LThiODItZjg3Njk5ZTMyNjhjAA&campaignId=OWZmMzUzMmUtN2YwYS00ZmU3LWE2YWQtNTY4NzM3MGQ0MWRjAA&clientId=NDU3MzI0MjgA&sig=9f29a6976057e8111c9428f1c9a1b2a1&utm_feed=aa34192d-eee2-4419-9a9a-de66b9dfae24&utm_content=supercena&utm_source=google&utm_medium=ads&gad_source=1&gclid=CjwKCAiArKW-BhAzEiwAZhWsIEiar9O8zairZtEva_XHMscS4XJ0XhR7OCxS1CvIZ9Mf7bbvwiH9YxoCS8sQAvD_BwE",
+      "AU": "https://www.amazon.com.au/DIGISHUO-PCA9685-Channel-Compatible-Raspberry/dp/B0D6B25HWX/ref=asc_df_B0D6B25HWX?mcid=461636bb2e323ecc99280477db94c90d&tag=googleshopdsk-22&linkCode=df0&hvadid=712299429064&hvpos=&hvnetw=g&hvrand=17548812028177650681&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9112711&hvtargid=pla-2386161306915&psc=1&gad_source=1"
     },
     defaultLink: "https://www.amazon.com/gp/product/B00EIB0U7A/"
   },
